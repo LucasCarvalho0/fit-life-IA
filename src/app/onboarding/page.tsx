@@ -1041,7 +1041,7 @@ export default function OnboardingPage() {
         )}
 
         {/* ========================================================================= */}
-        {/* ETAPA 5: Equipamentos & Finalização */}
+        {/* ETAPA 5: Infraestrutura & Aparelhos (Fiel a Image 5) */}
         {/* ========================================================================= */}
         {step === 5 && (
           <div className="flex flex-col flex-1 gap-5 animate-in fade-in duration-200">
@@ -1056,19 +1056,22 @@ export default function OnboardingPage() {
                   <span className="material-symbols-outlined text-[20px]">arrow_back</span>
                 </button>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high border border-white/5 text-primary text-[11px] font-semibold">
-                  <span className="material-symbols-outlined text-[14px]">fitness_center</span>
-                  <span className="text-on-surface-variant uppercase tracking-wider">Infraestrutura de Treino</span>
+                  <span className="material-symbols-outlined text-[14px]">neurology</span>
+                  <span className="text-on-surface-variant uppercase tracking-wider">Biomecânica de Precisão</span>
                 </div>
-                <span className="text-xs text-on-surface-variant font-mono">5/5</span>
+                <div className="flex items-center gap-1 text-xs font-mono text-primary">
+                  <span className="font-bold">5</span>
+                  <span className="text-on-surface-variant">/ 5</span>
+                </div>
               </div>
 
               <div className="flex flex-col gap-1 mt-1">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-primary font-semibold">Etapa 5: Equipamentos &amp; Academia</span>
-                  <span className="text-primary font-bold">100% concluído</span>
+                  <span className="text-primary font-semibold">Etapa 5: Infraestrutura &amp; Aparelhos</span>
+                  <span className="text-primary font-bold">100% Concluído</span>
                 </div>
                 <div className="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
-                  <div className="h-full rounded-full bg-primary transition-all duration-500" style={{ width: "100%" }} />
+                  <div className="h-full rounded-full bg-primary transition-all duration-500 shadow-sm" style={{ width: "100%" }} />
                 </div>
               </div>
             </header>
@@ -1079,117 +1082,223 @@ export default function OnboardingPage() {
                 Onde você vai treinar?
               </h1>
               <p className="text-xs text-on-surface-variant leading-relaxed">
-                Personalizaremos a seleção de exercícios e aparelhos de acordo com a disponibilidade exata de máquinas e pesos.
+                O motor biomecânico do <strong className="text-primary font-semibold">FitLife AI</strong> mapeia a sobrecarga metabólica e ajusta cada exercício ao maquinário real disponível, garantindo o mesmo vetor de hipertrofia.
               </p>
             </section>
 
-            {/* Redes e Academias */}
-            <section className="flex flex-col gap-2.5">
-              {[
-                {
-                  id: "smartfit",
-                  title: "Smart Fit",
-                  subtitle: "Aparelhos Matrix & Polias Duplas",
-                  desc: "Mapeamento das máquinas Smart Fit #14, polias altas, peck deck e halteres emborrachados.",
-                  icon: "storefront",
-                },
-                {
-                  id: "bluefit",
-                  title: "Bluefit",
-                  subtitle: "Linha articulada & pesos livres",
-                  desc: "Compatibilidade com maquinário convergente, gaiolas de agachamento e anilhas olímpicas.",
-                  icon: "domain",
-                },
-                {
-                  id: "neighborhood",
-                  title: "Academia de Bairro",
-                  subtitle: "Equipamentos clássicos & livres",
-                  desc: "Substituições inteligentes adaptadas para barras retas, bancos ajustáveis e pesos livres.",
-                  icon: "apartment",
-                },
-                {
-                  id: "homegym",
-                  title: "Home Gym / Casa",
-                  subtitle: "Halteres, elásticos & calistenia",
-                  desc: "Volume focado em peso corporal, halteres montáveis e faixas elásticas de resistência.",
-                  icon: "home",
-                },
-              ].map((g) => (
-                <button
-                  key={g.id}
-                  type="button"
-                  onClick={() => setGym(g.id as GymType)}
-                  className={`flex items-start justify-between p-3.5 rounded-2xl border text-left transition-all active:scale-98 ${
-                    gym === g.id
-                      ? "bg-surface-container-high border-primary shadow-md"
-                      : "bg-surface-container border-white/5 text-on-surface-variant hover:text-on-surface"
-                  }`}
-                >
-                  <div className="flex items-start gap-2.5">
-                    <div
-                      className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 ${
-                        gym === g.id ? "bg-primary text-on-primary" : "bg-surface-container-highest text-primary"
-                      }`}
-                    >
-                      <span className="material-symbols-outlined text-[20px]">{g.icon}</span>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-on-surface">{g.title}</span>
-                      <span className="text-[10px] text-primary uppercase font-semibold">{g.subtitle}</span>
-                      <p className="text-[10px] text-on-surface-variant leading-tight mt-1">{g.desc}</p>
-                    </div>
+            {/* Visual Environment Snapshot Card (Image 1 Banner) */}
+            <div className="relative w-full h-36 rounded-2xl overflow-hidden bg-surface-container border border-white/10 shadow-lg">
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: "url('/images/gym-banner.jpg')" }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent flex flex-col justify-end p-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <span className="text-[10px] text-primary uppercase tracking-wider font-bold">
+                      Mapeador de Tensão Mecânica
+                    </span>
                   </div>
-                  <div
-                    className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 mt-1 ${
-                      gym === g.id ? "border-primary bg-primary" : "border-white/20"
+                  <p className="font-display text-sm font-bold text-on-surface mt-0.5">
+                    Calibração de Resistência Fechada
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Presets: Gym Archetypes */}
+            <section className="flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-on-surface">Perfil da Instalação</span>
+                <span className="text-[10px] text-on-surface-variant">Presets instantâneos</span>
+              </div>
+
+              <div className="grid grid-cols-1 gap-2.5">
+                {[
+                  {
+                    id: "smartfit",
+                    title: "Academia Comercial / Rede",
+                    subtitle: "Smart Fit, Bluefit, maquinário completo",
+                    badges: ["48 Aparelhos", "Polias 3D", "Halotécnica 100%"],
+                    icon: "domain",
+                  },
+                  {
+                    id: "neighborhood",
+                    title: "Academia de Ferro / Tradicional",
+                    subtitle: "Foco em anilhas olímpicas, bancos pesados e halteres",
+                    icon: "fitness_center",
+                  },
+                  {
+                    id: "homegym",
+                    title: "Home Gym & Calistenia",
+                    subtitle: "Halteres compactos, elásticos e barra de porta",
+                    icon: "home_pin",
+                  },
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setGym(item.id as GymType)}
+                    className={`p-3.5 rounded-2xl border text-left transition-all active:scale-98 ${
+                      gym === item.id
+                        ? "bg-surface-container-high border-primary shadow-md"
+                        : "bg-surface-container border-white/5 text-on-surface-variant hover:text-on-surface opacity-85"
                     }`}
                   >
-                    {gym === g.id && (
-                      <span className="material-symbols-outlined text-on-primary text-[10px]">check</span>
+                    <div className="flex items-start justify-between">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                            gym === item.id ? "bg-primary text-on-primary" : "bg-surface-container-highest text-on-surface-variant"
+                          }`}
+                        >
+                          <span className="material-symbols-outlined text-[22px]">{item.icon}</span>
+                        </div>
+                        <div className="flex flex-col min-w-0">
+                          <span className="text-xs font-bold text-on-surface truncate">{item.title}</span>
+                          <span className="text-[10px] text-on-surface-variant">{item.subtitle}</span>
+                        </div>
+                      </div>
+                      <div
+                        className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 ${
+                          gym === item.id ? "border-primary bg-primary text-on-primary" : "border-white/20"
+                        }`}
+                      >
+                        {gym === item.id && (
+                          <span className="material-symbols-outlined text-[12px]">check</span>
+                        )}
+                      </div>
+                    </div>
+                    {item.badges && (
+                      <div className="flex items-center gap-1.5 mt-2.5 pt-1 border-t border-white/5">
+                        {item.badges.map((b, idx) => (
+                          <span
+                            key={idx}
+                            className={`px-2 py-0.5 rounded-md text-[9px] font-bold ${
+                              idx === 0 ? "bg-primary/10 text-primary" : "bg-surface-container text-on-surface-variant"
+                            }`}
+                          >
+                            {b}
+                          </span>
+                        ))}
+                      </div>
                     )}
-                  </div>
-                </button>
-              ))}
+                  </button>
+                ))}
+              </div>
             </section>
 
-            {/* Dias da Semana */}
-            <div className="p-4 rounded-2xl bg-surface-container border border-white/5 shadow-sm flex flex-col gap-2.5">
-              <span className="text-xs font-bold text-on-surface">Dias Selecionados para Treino:</span>
-              <div className="grid grid-cols-7 gap-1">
+            {/* Inventário Individual de Aparelhos */}
+            <section className="flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <h2 className="text-xs font-bold text-on-surface">Inventário Individual</h2>
+                <span className="text-[10px] text-primary font-bold">6/7 Selecionados</span>
+              </div>
+
+              <div className="flex flex-col gap-1.5">
                 {[
-                  { d: 0, label: "Dom" },
-                  { d: 1, label: "Seg" },
-                  { d: 2, label: "Ter" },
-                  { d: 3, label: "Qua" },
-                  { d: 4, label: "Qui" },
-                  { d: 5, label: "Sex" },
-                  { d: 6, label: "Sáb" },
-                ].map((item) => {
-                  const active = selectedDays.includes(item.d);
-                  return (
-                    <button
-                      key={item.d}
-                      type="button"
-                      onClick={() => {
-                        setSelectedDays((prev) =>
-                          prev.includes(item.d) ? prev.filter((x) => x !== item.d) : [...prev, item.d].sort()
-                        );
-                      }}
-                      className={`h-9 rounded-lg text-xs font-bold flex items-center justify-center transition-all ${
-                        active
-                          ? "bg-primary text-on-primary shadow-xs"
-                          : "bg-surface-container-high text-on-surface-variant border border-white/5"
+                  {
+                    name: "Banco Reto & Inclinado c/ Halteres",
+                    desc: "1kg a 36kg calibrados",
+                    icon: "exercise",
+                    checked: true,
+                  },
+                  {
+                    name: "Cross Over / Polia Dupla Regulável",
+                    desc: "Torre com mosquetões e pegadas neutras",
+                    icon: "cable",
+                    checked: true,
+                  },
+                  {
+                    name: "Smith Machine / Barra Guiada",
+                    desc: "Trava de segurança multiposicional",
+                    icon: "view_column",
+                    checked: true,
+                  },
+                  {
+                    name: "Leg Press 45° & Extensora",
+                    desc: "Plataforma angular e rolete autoajustável",
+                    icon: "downhill_skiing",
+                    checked: true,
+                  },
+                  {
+                    name: "Barra Fixa & Barras Paralelas",
+                    desc: "Pegadas pronadas, supinadas e neutras",
+                    icon: "sports_gymnastics",
+                    checked: true,
+                  },
+                  {
+                    name: "Hack Squat Articulado",
+                    desc: "Substituição ativa: Agachamento Búlgaro",
+                    icon: "block",
+                    checked: false,
+                  },
+                  {
+                    name: "Peck Deck / Voador Peitoral",
+                    desc: "Braços articulados com amplitude total",
+                    icon: "open_in_full",
+                    checked: true,
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between p-3 rounded-xl bg-surface-container border border-white/5 hover:bg-surface-container-high transition-colors"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                      <div className="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
+                        <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-xs font-bold text-on-surface truncate">{item.name}</span>
+                        <span className="text-[10px] text-on-surface-variant truncate">{item.desc}</span>
+                      </div>
+                    </div>
+                    <div
+                      className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${
+                        item.checked ? "bg-primary/20 text-primary" : "bg-surface-container-highest text-on-surface-variant"
                       }`}
                     >
-                      {item.label}
-                    </button>
-                  );
-                })}
+                      <span className="material-symbols-outlined text-[16px]">
+                        {item.checked ? "check_circle" : "radio_button_unchecked"}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Motor Biomecânico Ativo Box */}
+            <div className="p-3.5 rounded-2xl bg-surface-container border border-white/5 flex items-start gap-3">
+              <div className="w-9 h-9 rounded-xl bg-surface-container-high text-primary flex items-center justify-center shrink-0 mt-0.5">
+                <span className="material-symbols-outlined text-[20px]">neurology</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[11px] font-bold text-on-surface flex items-center gap-1.5">
+                  Motor Biomecânico Ativo <span className="w-2 h-2 rounded-full bg-primary" />
+                </span>
+                <p className="text-[10px] text-on-surface-variant leading-relaxed mt-0.5">
+                  Se qualquer aparelho estiver ocupado ou indisponível no dia, a IA gera em tempo real a equivalência exata de <strong className="text-on-surface">tensão muscular longitudinal</strong> e sobrecarga progressiva.
+                </p>
+              </div>
+            </div>
+
+            {/* Periodização Sob Demanda Box */}
+            <div className="p-3 rounded-2xl bg-surface-container border border-white/5 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-surface-container-high text-secondary flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-[20px]">tune</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold text-secondary uppercase tracking-wider">
+                  Periodização Sob Demanda
+                </span>
+                <p className="text-[10px] text-on-surface-variant leading-tight mt-0.5">
+                  Sua planilha será montada para eliminar gargalos de tempo de espera.
+                </p>
               </div>
             </div>
 
             {/* Botão de Finalização com Loading */}
-            <div className="flex flex-col gap-2 pt-2">
+            <div className="flex flex-col gap-2 pt-1">
               <button
                 type="button"
                 disabled={generating}
@@ -1199,17 +1308,18 @@ export default function OnboardingPage() {
                 {generating ? (
                   <>
                     <span className="w-5 h-5 border-2 border-on-primary border-t-transparent rounded-full animate-spin" />
-                    <span>Calibrando Plano Metabólico &amp; Treino...</span>
+                    <span>Compilando Periodização &amp; Metas...</span>
                   </>
                 ) : (
                   <>
-                    <span>Gerar Meu Plano Adaptativo</span>
-                    <span className="material-symbols-outlined text-[20px]">rocket_launch</span>
+                    <span>Concluir Onboarding &amp; Gerar Treino</span>
+                    <span className="material-symbols-outlined text-[20px]">auto_awesome</span>
                   </>
                 )}
               </button>
-              <p className="text-[10px] text-center text-on-surface-variant">
-                Metodologia científica validada • Atualizações automáticas semanais
+              <p className="text-[10px] text-center text-on-surface-variant flex items-center justify-center gap-1 opacity-70">
+                <span className="material-symbols-outlined text-[12px]">security</span>
+                <span>Cálculos TMB/TDEE e periodização determinística prontos para compilação.</span>
               </p>
             </div>
           </div>
