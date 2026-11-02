@@ -575,10 +575,10 @@ export default function AlimentacaoPage() {
                   <button
                     type="button"
                     onClick={() => handleOpenSwapModal(meal.id)}
-                    className="text-secondary hover:text-secondary-fixed transition-colors flex items-center gap-1 font-bold bg-secondary/10 px-2.5 py-1 rounded-lg active:scale-95"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 hover:bg-secondary/20 text-secondary border border-secondary/20 text-[11px] font-bold transition-all active:scale-95 no-underline shadow-xs cursor-pointer select-none"
                   >
                     <span className="material-symbols-outlined text-[14px]">auto_awesome</span>
-                    <span>Trocar alimento</span>
+                    <span className="no-underline">Trocar alimento</span>
                   </button>
                 </div>
               </div>

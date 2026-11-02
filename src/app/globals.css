@@ -57,6 +57,7 @@
 html {
   color-scheme: dark;
   background: var(--color-surface);
+  overflow-x: hidden;
 }
 
 body {
@@ -65,11 +66,21 @@ body {
   font-family: var(--font-sans);
   font-variant-numeric: tabular-nums;
   -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* Ocultar badge de desenvolvimento do Next.js (círculo com 'N') que sobrepõe a barra de navegação no botão Início */
+[data-nextjs-dev-tools-button],
+nextjs-portal,
+div[data-nextjs-toast],
+#__next-build-watcher {
+  display: none !important;
+  pointer-events: none !important;
 }
 
 /* Material Symbols configuration */
@@ -89,34 +100,44 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Modern Scrollbar — Fina (5px), moderna e sem setas do Windows em TODOS os elementos */
-*, *::before, *::after {
+/* Custom Modern Scrollbar — Fina (6px), moderna e sem setas do Windows em TODOS os elementos */
+html, body, *, *::before, *::after {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
+::-webkit-scrollbar,
 *::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 
+::-webkit-scrollbar-track,
 *::-webkit-scrollbar-track {
   background: transparent;
 }
 
+::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 9999px;
 }
 
+::-webkit-scrollbar-thumb:hover,
 *::-webkit-scrollbar-thumb:hover {
   background: #4edea3; /* Primary emerald accent */
 }
 
+::-webkit-scrollbar-button,
 *::-webkit-scrollbar-button {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
+}
+
+::-webkit-scrollbar-corner,
+*::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 /* Quando o modal de substituição ou outro modal estiver aberto */
