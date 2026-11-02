@@ -13,7 +13,7 @@ export default function ConfiguracoesPage() {
   const [userEmail, setUserEmail] = useState("carregando...");
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
-  const [syncStatus, setSyncStatus] = useState("Conectado ao Supabase");
+  const [syncStatus, setSyncStatus] = useState("Sincronizado na Nuvem");
 
   // Carregar dados reais do usuário logado
   useEffect(() => {

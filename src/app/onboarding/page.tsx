@@ -516,7 +516,7 @@ export default function OnboardingPage() {
               </button>
               <p className="text-[10px] text-center text-on-surface-variant flex items-center justify-center gap-1 opacity-70">
                 <span className="material-symbols-outlined text-[12px]">lock</span>
-                <span>Protegido por RLS no Supabase &amp; criptografia local de ponta a ponta</span>
+                <span>Seus dados físicos e biométricos protegidos com total privacidade</span>
               </p>
             </div>
           </div>

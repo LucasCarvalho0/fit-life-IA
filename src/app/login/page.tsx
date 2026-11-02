@@ -418,10 +418,10 @@ export default function LoginPage() {
         <div className="mt-5 flex flex-col items-center gap-1.5 text-center max-w-xs">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[10px] font-semibold border border-white/5">
             <span className="material-symbols-outlined text-[13px] text-tertiary">verified_user</span>
-            <span>Supabase Auth • Criptografia Ponta a Ponta</span>
+            <span>Ambiente Seguro • Privacidade Garantida</span>
           </div>
           <p className="text-[10px] text-on-surface-variant/70 leading-tight">
-            Seus biométricos e planos metabólicos são protegidos e processados localmente.
+            Seus treinos, biometria e evolução protegidos com total privacidade.
           </p>
         </div>
       </main>
