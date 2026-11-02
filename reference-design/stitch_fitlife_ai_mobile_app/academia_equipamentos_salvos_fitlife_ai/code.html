@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600;700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container": "#1c2028", "tertiary-container": "#06bb56", "on-tertiary-fixed": "#002109", "secondary-fixed": "#e1e0ff", "tertiary": "#4ae176", "secondary-container": "#3131c0", "on-primary-container": "#00422b", "surface-container-high": "#262a33", "tertiary-fixed": "#6bff8f", "surface-container-highest": "#31353e", "on-secondary-fixed": "#07006c", "on-error": "#690005", "error-container": "#93000a", "surface-tint": "#4edea3", "on-tertiary-container": "#00431a", "on-primary": "#003824", "outline": "#86948a", "primary": "#4edea3", "background": "#0f131c", "primary-fixed": "#6ffbbe", "outline-variant": "#3c4a42", "inverse-on-surface": "#2c3039", "on-secondary": "#1000a9", "on-background": "#dfe2ee", "error": "#ffb4ab", "on-secondary-container": "#b0b2ff", "inverse-primary": "#006c49", "on-primary-fixed-variant": "#005236", "surface-variant": "#31353e", "secondary-fixed-dim": "#c0c1ff", "on-error-container": "#ffdad6", "secondary": "#c0c1ff", "on-tertiary-fixed-variant": "#005321", "primary-fixed-dim": "#4edea3", "surface-bright": "#353942", "on-primary-fixed": "#002113", "surface-container-low": "#181c24", "on-surface-variant": "#bbcabf", "surface-dim": "#0f131c", "on-tertiary": "#003915", "primary-container": "#10b981", "tertiary-fixed-dim": "#4ae176", "surface-container-lowest": "#0a0e16", "surface": "#0f131c", "inverse-surface": "#dfe2ee", "on-secondary-fixed-variant": "#2f2ebe", "on-surface": "#dfe2ee" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "2rem", "margin": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "gutter": "1rem", "gutter-mobile": "0.75rem", "space-md": "1rem", "margin-mobile": "1rem", "space-lg": "1.5rem", "space-2xs": "0.125rem", "space-2xl": "3rem" }, fontFamily: { "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Lexend"], "display-lg-mobile": ["Lexend"], "headline-md": ["Lexend"], "display-lg": ["Lexend"], "label-lg": ["Inter"], "headline-xl": ["Lexend"], "headline-lg": ["Lexend"], "metric-display": ["Lexend"], "label-sm": ["Inter"] }, fontSize: { "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-xl": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "metric-display": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background text-on-surface font-body-md text-body-md flex flex-col min-h-screen antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><button aria-label="Fechar" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">close</span></button><h1 class="font-headline-md text-headline-md text-on-surface tracking-tight truncate flex-1 text-center">Academia &amp; Equipamentos</h1><div class="flex items-center gap-space-xs"><button aria-label="Salvar alterações" class="w-11 h-11 rounded-full flex items-center justify-center text-primary hover:text-primary-fixed hover:bg-surface-container active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-[26px]">check</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface pb-safe"><div class="flex flex-col w-full">
+<!-- Top Context / Engine Status Banner -->
+<section class="px-margin-mobile pt-space-sm pb-space-xs">
+<div class="bg-surface-container rounded-xl p-space-md shadow-md">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">neurology</span>
+<span class="font-label-md text-label-md text-primary tracking-wide uppercase">Motor Biomecânico de Substituição</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          ATIVO
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs leading-relaxed">
+        A IA adapta seus treinos instantaneamente com base nos aparelhos selecionados abaixo para evitar gargalos e perdas de sobrecarga progressiva.
+      </p>
+</div>
+</section>
+<!-- Training Center Card -->
+<section class="px-margin-mobile py-space-xs">
+<div class="relative overflow-hidden rounded-xl bg-surface-container shadow-md">
+<!-- Gym Ambience Thumbnail & Scrim -->
+<div class="relative w-full h-36 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover opacity-35" data-alt="Modern fitness academy with state of the art cable crossover racks, dumbbells lined on mirror walls, ambient moody emerald lighting, athletes training with focus, high dynamic range interior shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrtw7x0hojAYc7GUn2C40g5A-t3NsIeDysRWVehMMxEYTvsKiQB5cyVY_bubz89Eb4f5bjipyKO35ZkbuZcq1UiPLOWIJLsPehqcOdQCSxEf7wmEBN2BEdIZGaiyy1EKX2t96_tahfgTHNko7jQ4YzkRUDJtzXKOsALj_pCsUMSosUFsm8S9WzITfuC3mKdebsTZDxx4rfpJlUyBfr20ot89f8WGNiTwEO2BzZ5xg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/60 to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md text-primary font-label-sm text-label-sm px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            Unidade Principal
+          </span>
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[13px]">history</span>
+            320 check-ins
+          </span>
+</div>
+</div>
+<!-- Gym Meta & Telemetry -->
+<div class="p-space-md -mt-4 relative z-10 flex flex-col gap-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-1.5">
+            Smart Fit Consolação
+            <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-outline">location_on</span>
+            São Paulo, SP • Rua da Consolação, 1920
+          </p>
+</div>
+<!-- Occupancy HUD -->
+<div class="bg-surface-container-high rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary"></div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Lotação em Tempo Real</p>
+<p class="font-label-md text-label-md text-on-surface">Moderada • 62% do limite</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-0.5 justify-end">
+<span class="material-symbols-outlined text-[14px]">trending_down</span> -8% vs. ont.
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pico às 18:30</span>
+</div>
+</div>
+<!-- Quick Switch Actions -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-2xs">
+<button class="w-full h-11 bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all rounded-lg text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 px-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+<span class="truncate">Trocar Unidade</span>
+</button>
+<button class="w-full h-11 bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all rounded-lg text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 px-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">add_circle</span>
+<span class="truncate">2ª Academia</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Search & Category Filters -->
+<section class="px-margin-mobile pt-space-sm pb-space-xs">
+<!-- Search Bar -->
+<div class="relative w-full">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</span>
+<input class="w-full h-12 bg-surface-container rounded-xl pl-10 pr-10 text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none focus:ring-0 focus:bg-surface-container-high transition-colors" id="equipmentSearchInput" placeholder="Buscar aparelho, cabo, banco ou máquina..." type="search"/>
+<span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-outline">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</span>
+</div>
+<!-- Filter Pills Horizontal Bar -->
+<div class="flex items-center gap-1.5 overflow-x-auto py-space-sm no-scrollbar -mx-margin-mobile px-margin-mobile">
+<button class="filter-chip whitespace-nowrap px-3.5 h-8 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm active:scale-95 transition-all" data-filter="all" type="button">
+<span>Todos</span>
+<span class="bg-on-primary/20 px-1.5 py-0.5 rounded-full font-label-sm text-[10px]">18/24</span>
+</button>
+<button class="filter-chip whitespace-nowrap px-3.5 h-8 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" data-filter="peito" type="button">
+<span>Peito &amp; Ombros</span>
+<span class="bg-surface-container-highest px-1.5 py-0.5 rounded-full text-on-surface-variant font-label-sm text-[10px]">5/6</span>
+</button>
+<button class="filter-chip whitespace-nowrap px-3.5 h-8 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" data-filter="costas" type="button">
+<span>Costas &amp; Cabos</span>
+<span class="bg-surface-container-highest px-1.5 py-0.5 rounded-full text-on-surface-variant font-label-sm text-[10px]">4/4</span>
+</button>
+<button class="filter-chip whitespace-nowrap px-3.5 h-8 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" data-filter="pernas" type="button">
+<span>Pernas &amp; Glúteos</span>
+<span class="bg-surface-container-highest px-1.5 py-0.5 rounded-full text-on-surface-variant font-label-sm text-[10px]">5/7</span>
+</button>
+<button class="filter-chip whitespace-nowrap px-3.5 h-8 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" data-filter="pesos" type="button">
+<span>Pesos Livres</span>
+<span class="bg-surface-container-highest px-1.5 py-0.5 rounded-full text-on-surface-variant font-label-sm text-[10px]">4/4</span>
+</button>
+<button class="filter-chip whitespace-nowrap px-3.5 h-8 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" data-filter="cardio" type="button">
+<span>Cardio</span>
+<span class="bg-surface-container-highest px-1.5 py-0.5 rounded-full text-on-surface-variant font-label-sm text-[10px]">2/3</span>
+</button>
+</div>
+</section>
+<!-- Equipment List by Muscle Category -->
+<section class="px-margin-mobile flex flex-col gap-space-md py-space-xs">
+<!-- Category 1: Cabos & Polias -->
+<div class="equipment-category-group flex flex-col gap-space-xs" data-category="costas">
+<div class="flex items-center justify-between px-space-2xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">cable</span>
+          Cabos &amp; Polias
+        </h3>
+<span class="font-label-sm text-label-sm text-primary">2 de 2 disponíveis</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Item 1.1 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">fitness_center</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Crossover com Polia Regulável</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Duas torres, pegadas neutras e corda trança</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 1.2 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">vertical_align_bottom</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Puxador Alto &amp; Remada Baixa</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Barra reta anatômica, triângulo e estribos</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+</div>
+</div>
+<!-- Category 2: Membros Inferiores -->
+<div class="equipment-category-group flex flex-col gap-space-xs" data-category="pernas">
+<div class="flex items-center justify-between px-space-2xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">directions_walk</span>
+          Máquinas de Membros Inferiores
+        </h3>
+<span class="font-label-sm text-label-sm text-outline">4 de 5 selecionados</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Item 2.1 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">airline_seat_recline_extra</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Leg Press 45° Linear</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Capacidade máxima testada: 400kg com travas</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 2.2 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">airline_seat_legroom_extra</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Cadeira Extensora Articulada</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Ajuste de encosto e rolo de canela</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 2.3 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">airline_seat_flat</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Mesa Flexora Deitada</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Cames concêntricos para isquiotibiais</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 2.4 - Disabled with AI Fallback Hint -->
+<div class="equipment-row p-space-md bg-surface-container/60 rounded-xl flex flex-col gap-space-xs">
+<label class="flex items-center justify-between cursor-pointer select-none">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high/60 flex items-center justify-center shrink-0 text-outline">
+<span class="material-symbols-outlined text-[22px]">height</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface-variant line-through truncate equipment-title">Hack Squat 45°</p>
+<p class="font-body-sm text-body-sm text-outline truncate">Indisponível nesta unidade física</p>
+</div>
+</div>
+<input class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-surface-container-highest rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 left-0.5 w-6 h-6 bg-outline rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- AI Fallback Callout -->
+<div class="bg-secondary-container/20 rounded-lg p-space-xs px-space-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">auto_fix_high</span>
+<p class="font-label-sm text-label-sm text-on-secondary-container">
+              IA substituirá automaticamente por <span class="font-semibold text-secondary">Agachamento Búlgaro</span> ou <span class="font-semibold text-secondary">Smith Machine</span>.
+            </p>
+</div>
+</div>
+<!-- Item 2.5 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">footprint</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Panturrilha Sentado (Solear)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Anilhas olímpicas com apoio almofadado</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+</div>
+</div>
+<!-- Category 3: Peitoral & Ombros -->
+<div class="equipment-category-group flex flex-col gap-space-xs" data-category="peito">
+<div class="flex items-center justify-between px-space-2xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">sports_gymnastics</span>
+          Peitoral &amp; Ombros
+        </h3>
+<span class="font-label-sm text-label-sm text-outline">3 de 4 selecionados</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Item 3.1 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">fitness_center</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Banco Supino Reto Olímpico</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Suporte fixo regulável com barra 20kg</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 3.2 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">stairs</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Banco Inclinado Regulável (0°-85°)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">6 posições com assento anti-derrapante</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 3.3 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">pivot_table_chart</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Crucifixo Máquina (Peck Deck / Fly)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Braços duplos reversíveis para deltoide posterior</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 3.4 - Disabled -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container/60 rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high/60 flex items-center justify-center shrink-0 text-outline">
+<span class="material-symbols-outlined text-[22px]">view_timeline</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface-variant line-through truncate equipment-title">Máquina de Supino Vertical Articulado</p>
+<p class="font-body-sm text-body-sm text-outline truncate">Indisponível nesta unidade</p>
+</div>
+</div>
+<input class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-surface-container-highest rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 left-0.5 w-6 h-6 bg-outline rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+</div>
+</div>
+<!-- Category 4: Pesos Livres & Estrutura -->
+<div class="equipment-category-group flex flex-col gap-space-xs" data-category="pesos">
+<div class="flex items-center justify-between px-space-2xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">hardware</span>
+          Pesos Livres &amp; Estrutura
+        </h3>
+<span class="font-label-sm text-label-sm text-primary">4 de 4 disponíveis</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Item 4.1 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">grid_4x4</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Rack de Agachamento Livre</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Gaiola com J-hooks e barra olímpica de 20kg</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 4.2 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">sports_martial_arts</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Halteres Emborrachados (2kg a 40kg)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Pares completos com incrementos graduais</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 4.3 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">arrow_upward_alt</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Barra Fixa Multi-Pegada</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Pronada, supinada e pegada neutra aberta</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Item 4.4 -->
+<label class="equipment-row flex items-center justify-between p-space-md bg-surface-container rounded-xl cursor-pointer select-none active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm min-w-0 pr-space-xs">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">density_medium</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate equipment-title">Barras Paralelas (Dips)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Estrutura fixa para peitoral inferior e tríceps</p>
+</div>
+</div>
+<input checked="" class="equipment-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Biomechanics AI Settings Section -->
+<section class="px-margin-mobile py-space-md">
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-md shadow-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">smart_toy</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Regras Biomecânicas da IA</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Calibragem do algoritmo dinâmico de sessão</p>
+</div>
+</div>
+<!-- Setting 1: Auto Replace on Rush -->
+<label class="flex items-center justify-between gap-space-sm cursor-pointer select-none">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface">Auto-Substituição em Horário de Pico</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Se a Smart Fit estiver cheia (18h-19h30), sugere variações sem filas na mesma curva de força.</p>
+</div>
+<input checked="" class="ai-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-primary rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 right-0.5 w-6 h-6 bg-on-primary rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Setting 2: Prioritize Dumbbells/Cables -->
+<label class="flex items-center justify-between gap-space-sm cursor-pointer select-none">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface">Priorizar Halteres &amp; Cabos Livres</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Minimiza tempos de descanso passivo aguardando desocupação de aparelhos com alta disputa.</p>
+</div>
+<input class="ai-toggle sr-only" type="checkbox"/>
+<div class="toggle-track w-12 h-7 bg-surface-container-highest rounded-full relative transition-colors duration-200 shrink-0">
+<div class="toggle-thumb absolute top-0.5 left-0.5 w-6 h-6 bg-outline rounded-full shadow-sm transition-transform duration-200"></div>
+</div>
+</label>
+<!-- Setting 3: Minimum Load Increment -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Carga Mínima de Incremento</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold" id="incrementLabel">2.0 kg (Halteres padrão)</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="increment-btn h-11 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1 active:scale-95 transition-all" data-increment="2.0" type="button">
+<span class="material-symbols-outlined text-[16px]">fitness_center</span>
+            2.0 kg (Padrão)
+          </button>
+<button class="increment-btn h-11 rounded-lg bg-surface-container-highest text-on-surface-variant font-label-md text-label-md flex items-center justify-center gap-1 active:scale-95 transition-all" data-increment="1.25" type="button">
+<span class="material-symbols-outlined text-[16px]">change_circle</span>
+            1.25 kg (Fracionado)
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky Footer Action Container -->
+<section class="p-margin-mobile pt-space-xs flex flex-col gap-space-xs sticky bottom-0 bg-surface/95 backdrop-blur-xl">
+<!-- Primary CTA: Save & Sync -->
+<button class="w-full h-13 py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-all" id="saveAcadBtn" type="button">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+      Salvar Academia &amp; Sincronizar Fichas
+    </button>
+<!-- Secondary CTA: AI Vision Photo Scanner -->
+<button class="w-full h-11 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 active:scale-[0.98] transition-all" type="button">
+<span class="material-symbols-outlined text-secondary text-[20px]">photo_camera</span>
+<span>Importar Equipamentos via IA (Foto da Sala)</span>
+</button>
+</section>
+</div>
+<script>
+  (function() {
+    // Dynamic Filter Chips
+    const chips = document.querySelectorAll('.filter-chip');
+    const categoryGroups = document.querySelectorAll('.equipment-category-group');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => {
+          c.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          c.classList.add('bg-surface-container', 'text-on-surface');
+        });
+        chip.classList.remove('bg-surface-container', 'text-on-surface');
+        chip.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+
+        const filter = chip.getAttribute('data-filter');
+        categoryGroups.forEach(group => {
+          if (filter === 'all' || group.getAttribute('data-category') === filter) {
+            group.style.display = 'flex';
+          } else {
+            group.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Instant Search
+    const searchInput = document.getElementById('equipmentSearchInput');
+    const rows = document.querySelectorAll('.equipment-row');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        rows.forEach(row => {
+          const title = row.querySelector('.equipment-title')?.textContent.toLowerCase() || '';
+          if (title.includes(query)) {
+            row.style.display = 'flex';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Interactive Toggle Component Sync
+    const allToggles = document.querySelectorAll('.equipment-toggle, .ai-toggle');
+    allToggles.forEach(toggle => {
+      toggle.addEventListener('change', (e) => {
+        const track = e.target.parentElement.querySelector('.toggle-track');
+        const thumb = track?.querySelector('.toggle-thumb');
+        const isChecked = e.target.checked;
+
+        if (isChecked) {
+          track.classList.remove('bg-surface-container-highest');
+          track.classList.add('bg-primary');
+          thumb.classList.remove('left-0.5', 'bg-outline');
+          thumb.classList.add('right-0.5', 'bg-on-primary');
+        } else {
+          track.classList.remove('bg-primary');
+          track.classList.add('bg-surface-container-highest');
+          thumb.classList.remove('right-0.5', 'bg-on-primary');
+          thumb.classList.add('left-0.5', 'bg-outline');
+        }
+      });
+    });
+
+    // Increment Segment Selector
+    const incrementBtns = document.querySelectorAll('.increment-btn');
+    const incrementLabel = document.getElementById('incrementLabel');
+
+    incrementBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        incrementBtns.forEach(b => {
+          b.classList.remove('bg-surface-container-high', 'text-primary');
+          b.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+        });
+        btn.classList.remove('bg-surface-container-highest', 'text-on-surface-variant');
+        btn.classList.add('bg-surface-container-high', 'text-primary');
+
+        const val = btn.getAttribute('data-increment');
+        if (incrementLabel) {
+          incrementLabel.textContent = val === '2.0' ? '2.0 kg (Halteres padrão)' : '1.25 kg (Anilhas fracionadas)';
+        }
+      });
+    });
+
+    // Save Button Feedback
+    const saveBtn = document.getElementById('saveAcadBtn');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        const originalContent = saveBtn.innerHTML;
+        saveBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[22px] animate-spin">refresh</span>
+          Sincronizando com a IA...
+        `;
+        setTimeout(() => {
+          saveBtn.innerHTML = `
+            <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">done_all</span>
+            Fichas Atualizadas!
+          `;
+          setTimeout(() => {
+            saveBtn.innerHTML = originalContent;
+          }, 1800);
+        }, 800);
+      });
+    }
+  })();
+</script></main></body></html>

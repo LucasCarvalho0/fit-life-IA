@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600;700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container": "#1c2028", "tertiary-container": "#06bb56", "on-tertiary-fixed": "#002109", "secondary-fixed": "#e1e0ff", "tertiary": "#4ae176", "secondary-container": "#3131c0", "on-primary-container": "#00422b", "surface-container-high": "#262a33", "tertiary-fixed": "#6bff8f", "surface-container-highest": "#31353e", "on-secondary-fixed": "#07006c", "on-error": "#690005", "error-container": "#93000a", "surface-tint": "#4edea3", "on-tertiary-container": "#00431a", "on-primary": "#003824", "outline": "#86948a", "primary": "#4edea3", "background": "#0f131c", "primary-fixed": "#6ffbbe", "outline-variant": "#3c4a42", "inverse-on-surface": "#2c3039", "on-secondary": "#1000a9", "on-background": "#dfe2ee", "error": "#ffb4ab", "on-secondary-container": "#b0b2ff", "inverse-primary": "#006c49", "on-primary-fixed-variant": "#005236", "surface-variant": "#31353e", "secondary-fixed-dim": "#c0c1ff", "on-error-container": "#ffdad6", "secondary": "#c0c1ff", "on-tertiary-fixed-variant": "#005321", "primary-fixed-dim": "#4edea3", "surface-bright": "#353942", "on-primary-fixed": "#002113", "surface-container-low": "#181c24", "on-surface-variant": "#bbcabf", "surface-dim": "#0f131c", "on-tertiary": "#003915", "primary-container": "#10b981", "tertiary-fixed-dim": "#4ae176", "surface-container-lowest": "#0a0e16", "surface": "#0f131c", "inverse-surface": "#dfe2ee", "on-secondary-fixed-variant": "#2f2ebe", "on-surface": "#dfe2ee" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "2rem", "margin": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "gutter": "1rem", "gutter-mobile": "0.75rem", "space-md": "1rem", "margin-mobile": "1rem", "space-lg": "1.5rem", "space-2xs": "0.125rem", "space-2xl": "3rem" }, fontFamily: { "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Lexend"], "display-lg-mobile": ["Lexend"], "headline-md": ["Lexend"], "display-lg": ["Lexend"], "label-lg": ["Inter"], "headline-xl": ["Lexend"], "headline-lg": ["Lexend"], "metric-display": ["Lexend"], "label-sm": ["Inter"] }, fontSize: { "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-xl": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "metric-display": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background text-on-surface font-body-md text-body-md flex flex-col min-h-screen antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><button aria-label="Fechar" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">close</span></button><h1 class="font-headline-md text-headline-md text-on-surface tracking-tight truncate flex-1 text-center">Academia &amp; Equipamentos</h1><div class="flex items-center gap-space-xs"><button aria-label="Salvar alterações" class="w-11 h-11 rounded-full flex items-center justify-center text-primary hover:text-primary-fixed hover:bg-surface-container active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-[26px]">check</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface pb-safe"><div class="flex flex-col w-full pb-10">
+<div class="flex flex-col gap-space-md px-margin-mobile">
+<!-- AI Diagnostic Status Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high p-space-md shadow-md">
+<div class="absolute -top-12 -right-12 w-36 h-36 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          Motor Proativo FitLife v3.2 • IA Preditiva Ativa
+        </span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+        Notificações &amp; Lembretes
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mt-space-2xs">
+        Lembretes sincronizados em tempo real com sua rotina, horários de pico da academia e janela metabólica.
+      </p>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface">Latência de Telemetria: &lt; 140ms</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">Sincronizado</span>
+</div>
+</div>
+<!-- Master Proactive Engine Card -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm flex-1 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface block leading-snug">
+              Alertas Contextuais por IA
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-space-2xs">
+              Ajusta disparos se você atrasar uma refeição, se a academia lotar ou se o descanso exigir mais tempo.
+            </span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" id="master-ai-toggle" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-primary-container peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Sensitivity Selector -->
+<div class="mt-space-md pt-space-sm">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-space-xs">
+          Nível de Sensibilidade da IA
+        </label>
+<div class="grid grid-cols-3 gap-space-xs" id="sensitivity-pills">
+<button class="sensitivity-btn py-2 px-1 rounded-lg text-center font-label-sm text-label-sm transition-all bg-primary text-on-primary font-semibold shadow-sm" data-level="balanced" type="button">
+            Equilibrado
+          </button>
+<button class="sensitivity-btn py-2 px-1 rounded-lg text-center font-label-sm text-label-sm transition-all bg-surface-container-high text-on-surface-variant hover:text-on-surface" data-level="focus" type="button">
+            Foco Total
+          </button>
+<button class="sensitivity-btn py-2 px-1 rounded-lg text-center font-label-sm text-label-sm transition-all bg-surface-container-high text-on-surface-variant hover:text-on-surface" data-level="essential" type="button">
+            Essencial
+          </button>
+</div>
+</div>
+</div>
+<!-- SECTION: Treino & Pré-Treino -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<div class="flex items-center justify-between px-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">fitness_center</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Treino &amp; Pré-Treino</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 ativos</span>
+</div>
+<!-- Dynamic Pre-Workout -->
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Alerta Pré-Treino Dinâmico</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              Notificar 45 min antes do treino planejado (17:45) com sugestão de lanche e checagem de cafeína.
+            </p>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 17:00 disparo estimado
+              </span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Gym Density Alert -->
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface">Lotação da Academia</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-label-sm">
+                Smart Fit Consolação
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              Avisar às 17:30 se passar de 75% da capacidade, sugerindo antecipar ou reorganizar a ordem dos aparelhos.
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Rest Timer Haptic Alert -->
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Descanso entre Séries (Haptics)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              Vibração tátil no Apple Watch / celular 5 segundos antes de zerar o timer de 90s.
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Progressive Overload Alert -->
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Platô &amp; Sugestão de Carga</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              Avisar no Treino B quando o 1RM estimado sinalizar prontidão para +2.5 kg na Puxada Alta.
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- SECTION: Hidratação & Janela Metabólica -->
+<div class="flex flex-col gap-space-xs mt-space-sm">
+<div class="flex items-center justify-between px-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">water_drop</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hidratação &amp; Janela Metabólica</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary">60% Concluído</span>
+</div>
+<!-- Hydration Metric Status Card -->
+<div class="rounded-xl bg-surface-container-high p-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Progresso de Hoje</span>
+<span class="font-headline-sm text-headline-sm text-primary">2.100 / 3.500 ml</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 60%"></div>
+</div>
+<div class="flex items-center justify-between mt-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span>Último gole: 14:15 (350ml)</span>
+<span>Faltam 1.400 ml</span>
+</div>
+</div>
+<!-- Smart Water Reminders -->
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Lembretes Inteligentes de Água</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              A cada 90 min (Ajusta automaticamente após treinos intensos ou dias de calor elevado).
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Post Workout Thirst Mode -->
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Modo Sede Pós-Treino</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              Meta expressa de 500 ml disparada logo após finalizar a sessão ativa.
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Smart Bottle Integration -->
+<div class="rounded-xl bg-surface-container p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">bluetooth_connected</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface block truncate">Garrafa Smart / Apple Health</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sincronização contínua</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm shrink-0">
+          Conectado
+        </span>
+</div>
+</div>
+<!-- SECTION: Nutrição & Horários das Refeições -->
+<div class="flex flex-col gap-space-xs mt-space-sm">
+<div class="flex items-center justify-between px-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">restaurant</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Nutrição &amp; Refeições</h3>
+</div>
+</div>
+<!-- Anabolic Window -->
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Janela Anabólica Pós-Treino</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              Lembrete prioritário para consumir 35g de proteína até 60 min após o treino.
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Delayed Meal Alert -->
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Registro de Refeições Atrasadas</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              Aviso suave caso uma das 4 refeições planejadas não seja registrada em até 2h da previsão.
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Daily Macro Closing -->
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Fechamento de Macros Diários</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                21:30
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              Balanço do saldo calórico restante antes da ceia ou jejum noturno.
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- SECTION: Não Perturbe & Janela de Sono -->
+<div class="flex flex-col gap-space-xs mt-space-sm">
+<div class="flex items-center justify-between px-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">bedtime</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Modo Sono &amp; Descanso</h3>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container p-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface block">Silenciar Durante Sono &amp; Foco</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+              Janela programada das 23:00 às 06:30 (sincronizada com o perfil circadiano).
+            </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Exceção de alta prioridade (hidratação crítica)</span>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-4 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- SECTION: Canais de Notificação -->
+<div class="flex flex-col gap-space-xs mt-space-sm">
+<div class="flex items-center justify-between px-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">notifications_active</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Canais Ativos</h3>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container p-space-sm flex flex-col gap-space-2xs">
+<!-- Push Notifications -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">phone_iphone</span>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface block">Push no Dispositivo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Alertas sonoros e na tela de bloqueio</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Apple Watch / Wearable -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">watch</span>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface block">Apple Watch / Garmin Haptics</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pulsos de pulso e micro-telas</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- WhatsApp / Email Digest -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">mark_email_read</span>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface block">Resumo Semanal (WhatsApp / E-mail)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Balanço consolidado aos domingos às 20h</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant peer-checked:after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Live Toast / Feedback Banner (Hidden by default, triggered on test button) -->
+<div class="hidden transition-all duration-300 rounded-xl bg-surface-container-highest p-space-md shadow-xl flex items-start gap-space-sm" id="test-toast">
+<div class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary">FitLife AI • Alerta de Carga</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Agora</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-1">
+          Smart Fit com 58% de ocupação! Ótimo momento para iniciar o Treino B. +2.5kg na Puxada liberado!
+        </p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-space-sm mt-space-md">
+<button class="w-full h-13 py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-xs active:scale-[0.98] transition-transform shadow-md" id="save-preferences-btn" type="button">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+        Salvar Preferências de Notificação
+      </button>
+<button class="w-full h-12 py-3 px-space-md rounded-xl bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs hover:bg-surface-container-high active:scale-[0.98] transition-all" id="test-push-btn" type="button">
+<span class="material-symbols-outlined text-primary text-[20px]">send_and_archive</span>
+        Testar Envio de Notificação Push Interativa
+      </button>
+</div>
+<!-- Battery & Privacy Disclaimer Footnote -->
+<div class="flex items-center justify-center gap-space-xs text-center px-space-md py-space-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        O processamento da IA é executado localmente no dispositivo para preservar sua privacidade e bateria.
+      </p>
+</div>
+</div>
+</div>
+<script>
+  // Sensitivity Pills Selector Micro-interaction
+  const buttons = document.querySelectorAll('.sensitivity-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-sm');
+        b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+      });
+      btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+      btn.classList.add('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-sm');
+    });
+  });
+
+  // Test Push Micro-interaction
+  const testBtn = document.getElementById('test-push-btn');
+  const toast = document.getElementById('test-toast');
+  if (testBtn && toast) {
+    testBtn.addEventListener('click', () => {
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      setTimeout(() => {
+        toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 5000);
+    });
+  }
+
+  // Master Engine Toggle effect
+  const masterToggle = document.getElementById('master-ai-toggle');
+  if (masterToggle) {
+    masterToggle.addEventListener('change', (e) => {
+      const isChecked = e.target.checked;
+      const pillsContainer = document.getElementById('sensitivity-pills');
+      if (pillsContainer) {
+        pillsContainer.style.opacity = isChecked ? '1' : '0.4';
+        pillsContainer.style.pointerEvents = isChecked ? 'auto' : 'none';
+      }
+    });
+  }
+
+  // Save Preferences Confirmation
+  const saveBtn = document.getElementById('save-preferences-btn');
+  if (saveBtn) {
+    saveBtn.addEventListener('click', () => {
+      const originalText = saveBtn.innerHTML;
+      saveBtn.innerHTML = '<span class="material-symbols-outlined text-[22px]">check</span> Preferências Salvas!';
+      saveBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+      setTimeout(() => {
+        saveBtn.innerHTML = originalText;
+        saveBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+      }, 2000);
+    });
+  }
+</script></main></body></html>

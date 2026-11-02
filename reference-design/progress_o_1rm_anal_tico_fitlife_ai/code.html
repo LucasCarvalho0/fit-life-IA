@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lexend:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;background-color:#0f131c;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-tint": "#4edea3", "on-primary-fixed": "#002113", "on-secondary-container": "#b0b2ff", "primary-container": "#10b981", "secondary-container": "#3131c0", "outline": "#86948a", "on-tertiary-fixed": "#002109", "on-tertiary": "#003915", "outline-variant": "#3c4a42", "on-secondary": "#1000a9", "surface-bright": "#353942", "secondary": "#c0c1ff", "surface": "#0f131c", "primary-fixed": "#6ffbbe", "on-tertiary-container": "#00431a", "background": "#0f131c", "surface-container-lowest": "#0a0e16", "on-primary": "#003824", "on-error": "#690005", "on-tertiary-fixed-variant": "#005321", "secondary-fixed": "#e1e0ff", "on-primary-container": "#00422b", "on-secondary-fixed-variant": "#2f2ebe", "surface-dim": "#0f131c", "on-surface": "#dfe2ee", "tertiary-fixed-dim": "#4ae176", "primary-fixed-dim": "#4edea3", "on-secondary-fixed": "#07006c", "on-primary-fixed-variant": "#005236", "surface-container-low": "#181c24", "surface-container": "#1c2028", "secondary-fixed-dim": "#c0c1ff", "inverse-surface": "#dfe2ee", "tertiary-container": "#06bb56", "surface-container-high": "#262a33", "on-background": "#dfe2ee", "surface-container-highest": "#31353e", "error": "#ffb4ab", "inverse-on-surface": "#2c3039", "on-error-container": "#ffdad6", "inverse-primary": "#006c49", "error-container": "#93000a", "surface-variant": "#31353e", "tertiary-fixed": "#6bff8f", "on-surface-variant": "#bbcabf", "tertiary": "#4ae176", "primary": "#4edea3" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter-mobile": "0.75rem", "space-2xl": "3rem", "space-xl": "2rem", "margin-mobile": "1rem", "margin": "1.5rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xs": "0.25rem", "space-2xs": "0.125rem", "space-md": "1rem", "space-lg": "1.5rem" }, fontFamily: { "display-lg-mobile": ["Lexend"], "label-lg": ["Inter"], "body-md": ["Inter"], "headline-md": ["Lexend"], "body-lg": ["Inter"], "metric-display": ["Lexend"], "label-md": ["Inter"], "body-sm": ["Inter"], "label-sm": ["Inter"], "headline-sm": ["Lexend"], "display-lg": ["Lexend"], "headline-lg": ["Lexend"], "headline-xl": ["Lexend"] }, fontSize: { "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }], "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "headline-md": ["20px", { lineHeight: "28px", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }], "metric-display": ["36px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "body-sm": ["12px", { lineHeight: "18px", fontWeight: "400" }], "label-sm": ["10px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }], "headline-sm": ["16px", { lineHeight: "24px", fontWeight: "600" }], "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "800" }], "headline-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }], "headline-xl": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "700" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Voltar" class="w-11 h-11 -ml-space-xs flex items-center justify-center rounded-full text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Progressão &amp; 1Rm Analítico</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Filtrar dados" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">tune</span></button><button aria-label="Compartilhar análise" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">share</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-2xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface px-margin-mobile"><div class="flex flex-col w-full pb-10 space-y-5">
+<!-- Exercise Selector & Header Section -->
+<section class="flex flex-col gap-3">
+<!-- Active Exercise Overview Card -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-3 relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              Dorsais &amp; Bíceps
+            </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+              Cadeia Posterior
+            </span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1 truncate">Puxada Alta na Polia</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">fitness_center</span>
+            Polia Superior / Pegada Pronada Aberta
+          </p>
+</div>
+<button class="shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-label-md font-label-md transition-all active:scale-95 shadow-sm" id="toggleExercisesBtn">
+<span>Trocar</span>
+<span class="material-symbols-outlined text-[16px] text-primary">swap_horiz</span>
+</button>
+</div>
+<!-- Quick Switch Drawer / Pills -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-1" id="exercisePillsRow">
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+          Puxada Alta
+        </button>
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+          Supino Reto
+        </button>
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+          Agachamento Livre
+        </button>
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+          Levantamento Terra
+        </button>
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+          Desenvolvimento
+        </button>
+</div>
+</div>
+<!-- Timeframe Filter Pills -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-container-low rounded-xl overflow-x-auto no-scrollbar">
+<button class="flex-1 py-1.5 px-3 rounded-lg text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">
+        1 Mês
+      </button>
+<button class="flex-1 py-1.5 px-3 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all whitespace-nowrap">
+        3 Meses (Ativo)
+      </button>
+<button class="flex-1 py-1.5 px-3 rounded-lg text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">
+        6 Meses
+      </button>
+<button class="flex-1 py-1.5 px-3 rounded-lg text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">
+        1 Ano
+      </button>
+<button class="flex-1 py-1.5 px-3 rounded-lg text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">
+        Tudo
+      </button>
+</div>
+</section>
+<!-- Hero Metric: 1RM Estimado Atual -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-4 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold tracking-tight">1RM Estimado Atual</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/15 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+        Novo Recorde Pessoal
+      </span>
+</div>
+<!-- Big Numbers Presentation -->
+<div class="flex items-baseline justify-between flex-wrap gap-2">
+<div class="flex items-baseline gap-2">
+<span class="font-metric-display text-metric-display text-on-surface">104</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant font-bold">kg</span>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container-high">
+<span class="material-symbols-outlined text-primary text-[18px]">trending_up</span>
+<span class="font-label-md text-label-md text-primary">+12 kg (+13.0%)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-0.5">em 90d</span>
+</div>
+</div>
+<!-- Biometric & Algorithm Accuracy Banner -->
+<div class="bg-surface-container-high rounded-lg p-2.5 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-md bg-secondary-container/40 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">psychology</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Brzycki + Epley (Ponderada)</span>
+<span class="font-label-sm text-label-sm text-primary shrink-0">Alta Precisão</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+          Calculado com base em <strong class="text-on-surface">70 kg × 8 reps</strong> com esforço percibido <strong class="text-on-surface">RPE 9.0</strong> (1 repetição em reserva validada).
+        </p>
+</div>
+</div>
+<!-- Micro Diagnostic Breakdown Cards -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<div class="bg-surface-container-low rounded-lg p-2.5 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Carga de Trabalho</span>
+<div class="mt-1.5">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">70 <span class="text-body-sm font-normal text-on-surface-variant">kg</span></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">× 8 reps</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Volume / Treino</span>
+<div class="mt-1.5">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">2.140 <span class="text-body-sm font-normal text-on-surface-variant">kg</span></div>
+<span class="font-label-sm text-label-sm text-primary">+8% microciclo</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Sobrecarga Semanal</span>
+<div class="mt-1.5">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">+2.5%</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Consistente</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive SVG Trend Chart: 12-Week 1RM & Target Curve -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-3">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Curva de Progressão de 1RM</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Evolução contínua nas últimas 12 semanas</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1RM Real</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Meta Linear</span>
+</div>
+</div>
+</div>
+<!-- Active Tooltip Callout -->
+<div class="bg-surface-container-high rounded-lg p-2.5 flex items-center justify-between gap-2 shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-2 h-7 rounded-full bg-primary shrink-0"></div>
+<div class="flex flex-col truncate">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Semana 12 (Último Registro)</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">70 kg × 8 reps • RPE 9.0</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-sm text-label-sm text-primary font-bold">1RM: 104 kg</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">+2.0 kg vs Sem 11</span>
+</div>
+</div>
+<!-- The SVG Chart -->
+<div class="w-full relative mt-1">
+<svg class="w-full h-auto overflow-visible" preserveaspectratio="none" viewbox="0 0 360 170">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#10b981" stop-opacity="0.32"></stop>
+<stop offset="100%" stop-color="#10b981" stop-opacity="0.0"></stop>
+</lineargradient>
+<filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+</defs>
+<!-- Horizontal Grid Lines (Weights: 80, 90, 100, 110 kg) -->
+<line stroke="#31353e" stroke-dasharray="3,3" stroke-width="1" x1="20" x2="350" y1="20" y2="20"></line>
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="end" x="12" y="23">110</text>
+<line stroke="#31353e" stroke-dasharray="3,3" stroke-width="1" x1="20" x2="350" y1="60" y2="60"></line>
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="end" x="12" y="63">100</text>
+<line stroke="#31353e" stroke-dasharray="3,3" stroke-width="1" x1="20" x2="350" y1="100" y2="100"></line>
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="end" x="12" y="103">90</text>
+<line stroke="#31353e" stroke-dasharray="3,3" stroke-width="1" x1="20" x2="350" y1="140" y2="140"></line>
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="end" x="12" y="143">80</text>
+<!-- Baseline Linear Periodization Target Line (secondary Indigo) -->
+<path d="M 28 112 L 340 38" fill="none" opacity="0.85" stroke="#c0c1ff" stroke-dasharray="4,4" stroke-width="1.8"></path>
+<!-- Area Fill for Real Curve -->
+<!-- Points: Sem1(28, 108), Sem2(56, 104), Sem3(84, 100), Sem4(112, 102), Sem5(140, 94), Sem6(168, 86), Sem7(196, 78), Sem8(224, 76), Sem9(252, 66), Sem10(280, 58), Sem11(308, 52), Sem12(336, 44) -->
+<path d="M 28 108 C 45 106, 65 102, 84 100 C 98 98, 105 103, 112 102 C 126 100, 133 96, 140 94 C 154 90, 161 88, 168 86 C 182 82, 189 80, 196 78 C 210 77, 217 77, 224 76 C 238 72, 245 68, 252 66 C 266 62, 273 60, 280 58 C 294 55, 301 53, 308 52 C 322 48, 330 45, 336 44 L 336 148 L 28 148 Z" fill="url(#chartGradient)"></path>
+<!-- Real 1RM Curve Stroke -->
+<path d="M 28 108 C 45 106, 65 102, 84 100 C 98 98, 105 103, 112 102 C 126 100, 133 96, 140 94 C 154 90, 161 88, 168 86 C 182 82, 189 80, 196 78 C 210 77, 217 77, 224 76 C 238 72, 245 68, 252 66 C 266 62, 273 60, 280 58 C 294 55, 301 53, 308 52 C 322 48, 330 45, 336 44" fill="none" stroke="#10b981" stroke-linecap="round" stroke-width="3"></path>
+<!-- Actual Data Points along the curve -->
+<circle cx="28" cy="108" fill="#10b981" r="3"></circle>
+<circle cx="84" cy="100" fill="#10b981" r="3"></circle>
+<circle cx="140" cy="94" fill="#10b981" r="3"></circle>
+<circle cx="196" cy="78" fill="#10b981" r="3"></circle>
+<circle cx="252" cy="66" fill="#10b981" r="3"></circle>
+<circle cx="308" cy="52" fill="#10b981" r="3"></circle>
+<!-- Highlight Point on Week 12 (Current PR) -->
+<circle cx="336" cy="44" fill="#10b981" filter="url(#glow)" opacity="0.35" r="7"></circle>
+<circle cx="336" cy="44" fill="#10b981" r="4.5"></circle>
+<circle cx="336" cy="44" fill="#0f131c" r="2"></circle>
+<!-- X-Axis Labels -->
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="middle" x="28" y="162">S1</text>
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="middle" x="84" y="162">S3</text>
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="middle" x="140" y="162">S5</text>
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="middle" x="196" y="162">S7</text>
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="middle" x="252" y="162">S9</text>
+<text fill="#86948a" font-family="Inter" font-size="9" text-anchor="middle" x="308" y="162">S11</text>
+<text fill="#4edea3" font-family="Inter" font-size="9" font-weight="bold" text-anchor="middle" x="336" y="162">S12</text>
+</svg>
+</div>
+<!-- Chart Micro Footnote -->
+<div class="flex items-center justify-between pt-1 border-t border-surface-container-high/60">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Taxa média de ganho: <strong class="text-on-surface">+1.3 kg/sem</strong></span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+        Linearidade 94%
+      </span>
+</div>
+</section>
+<!-- AI Biomechanical Engine Card -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Diagnóstico Adaptativo AI</span>
+<span class="font-label-sm text-label-sm text-secondary">Motor Biomecânico FitLife</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/50 text-secondary font-label-sm text-label-sm font-semibold">
+        Ativo
+      </span>
+</div>
+<!-- AI Diagnostic Text Box -->
+<div class="bg-surface-container-high rounded-xl p-3 flex flex-col gap-2">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+        Sua progressão no exercício estabilizou nas últimas 3 semanas na faixa de <strong class="text-primary font-semibold">70 kg</strong>. A relação de velocidade de barra e RPE (9.0) indica <strong class="text-on-surface font-semibold">prontidão neural para sobrecarga</strong> sem risco de falha mecânica.
+      </p>
+<div class="bg-surface-container-lowest/70 rounded-lg p-2.5 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">recommend</span>
+<div class="font-body-sm text-body-sm text-on-surface">
+<strong class="text-primary font-semibold">Próxima sessão:</strong> 72.5 kg para 6–8 reps na 1ª série de trabalho (+3.5% sobrecarga planejada).
+        </div>
+</div>
+</div>
+<!-- Neural Status & Fatigue Indicators -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[16px]">battery_charging_full</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Recuperação Neural</span>
+<span class="font-label-md text-label-md text-primary font-bold">100% (Pronto)</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[16px]">speed</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Risco de Platô</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Baixo (&lt; 15%)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Training Zones & %1RM Breakdown Table -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Zonas de Treino &amp; %1RM</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Distribuição tática de carga para 104 kg</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</div>
+<!-- List of Structured Zones -->
+<div class="flex flex-col gap-2">
+<!-- Zone 100% -->
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">100% • Força Máxima</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">104</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">kg (1 rep)</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 100%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Teste de Carga / Pique Neural</span>
+<span>RPE 10</span>
+</div>
+</div>
+<!-- Zone 90% -->
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">90% • Potência / Força Pura</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">94</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">kg (3–4 reps)</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 90%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Recrutamento Motor Intenso</span>
+<span>RPE 9.0–9.5</span>
+</div>
+</div>
+<!-- Zone 80% (Current Focus) -->
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2 ring-1 ring-primary/40 bg-surface-container-high/50">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md text-primary font-bold">80% • Hipertrofia Funcional</span>
+<span class="px-1.5 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm">Faixa Atual</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">83</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">kg (6–8 reps)</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 80%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Tensão Mecânica Ótima</span>
+<span>RPE 8.0–8.5</span>
+</div>
+</div>
+<!-- Zone 70% -->
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">70% • Hipertrofia Metabólica</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">73</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">kg (10–12 reps)</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 70%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Séries Padrão / Estresse Metabólico</span>
+<span>RPE 7.5–8.0</span>
+</div>
+</div>
+<!-- Zone 60% -->
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">60% • Resistência / Deload</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">62</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">kg (15–20 reps)</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-outline h-full rounded-full" style="width: 60%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Regenerativo &amp; Conexão Mente-Músculo</span>
+<span>RPE 6.0–7.0</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Sessions History Log -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Histórico de Sessões Recentes</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Logs de sobrecarga e volume acumulado</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+        3 sessões
+      </span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Session 1: Today -->
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2 relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Hoje, 24 Out • Treino B</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold bg-primary/10 px-2 py-0.5 rounded-full">
+            1RM: 104 kg
+          </span>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap font-body-sm text-body-sm text-on-surface">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant font-label-sm">4 Séries:</span>
+<span class="text-on-surface-variant">45kg×15</span>
+<span class="text-outline">•</span>
+<span>65kg×10</span>
+<span class="text-outline">•</span>
+<span>65kg×10</span>
+<span class="text-outline">•</span>
+<strong class="text-primary font-semibold">70kg×8 (Top Set)</strong>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1 border-t border-surface-container-high/60">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">scale</span>
+            Volume Total: <strong class="text-on-surface">2.260 kg</strong>
+</span>
+<span class="text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span>
+            +4.0% vs ant.
+          </span>
+</div>
+</div>
+<!-- Session 2: 17 Out -->
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-surface-variant/40"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">17 Out • Treino B</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium bg-surface-container-high px-2 py-0.5 rounded-full">
+            1RM: 100 kg
+          </span>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap font-body-sm text-body-sm text-on-surface">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant font-label-sm">4 Séries:</span>
+<span class="text-on-surface-variant">45kg×15</span>
+<span class="text-outline">•</span>
+<span>62.5kg×10</span>
+<span class="text-outline">•</span>
+<span>65kg×10</span>
+<span class="text-outline">•</span>
+<span class="font-semibold text-on-surface">67.5kg×8</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1 border-t border-surface-container-high/60">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">scale</span>
+            Volume Total: <strong class="text-on-surface">2.170 kg</strong>
+</span>
+<span class="text-on-surface-variant">RPE 8.5</span>
+</div>
+</div>
+<!-- Session 3: 10 Out -->
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-surface-variant/40"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">10 Out • Treino B</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium bg-surface-container-high px-2 py-0.5 rounded-full">
+            1RM: 96 kg
+          </span>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap font-body-sm text-body-sm text-on-surface">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant font-label-sm">4 Séries:</span>
+<span class="text-on-surface-variant">40kg×15</span>
+<span class="text-outline">•</span>
+<span>60kg×10</span>
+<span class="text-outline">•</span>
+<span>62.5kg×10</span>
+<span class="text-outline">•</span>
+<span class="font-semibold text-on-surface">65kg×8</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1 border-t border-surface-container-high/60">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">scale</span>
+            Volume Total: <strong class="text-on-surface">2.050 kg</strong>
+</span>
+<span class="text-on-surface-variant">RPE 8.5</span>
+</div>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1 mt-1">
+<span>Ver Histórico Completo (12 Semanas)</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</section>
+<!-- Bottom Action CTAs -->
+<section class="flex flex-col gap-2 pt-2">
+<!-- Primary CTA: Simulate New Load in Calculator -->
+<button class="w-full py-3.5 px-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all" id="calcActionBtn">
+<span class="material-symbols-outlined text-[20px]">calculate</span>
+<span>Simular Nova Carga no Calculador 1RM</span>
+</button>
+<!-- Secondary Ghost Action: Export Report -->
+<button class="w-full py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">ios_share</span>
+<span>Exportar Gráfico de Sobrecarga</span>
+</button>
+</section>
+</div>
+<script>
+  // Simple micro-interactions for exercise switcher & feedback toast
+  const toggleBtn = document.getElementById('toggleExercisesBtn');
+  const pillsRow = document.getElementById('exercisePillsRow');
+  const calcBtn = document.getElementById('calcActionBtn');
+
+  if (toggleBtn && pillsRow) {
+    toggleBtn.addEventListener('click', () => {
+      pillsRow.scrollBy({ left: 120, behavior: 'smooth' });
+    });
+  }
+
+  if (calcBtn) {
+    calcBtn.addEventListener('click', () => {
+      const originalText = calcBtn.innerHTML;
+      calcBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span><span>Calculando Projeção...</span>';
+      setTimeout(() => {
+        calcBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Cálculo Atualizado: 104 kg</span>';
+        setTimeout(() => {
+          calcBtn.innerHTML = originalText;
+        }, 2200);
+      }, 700);
+    });
+  }
+</script></main></body></html>

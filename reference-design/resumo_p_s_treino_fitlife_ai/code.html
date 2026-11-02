@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lexend:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0f131c;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-high": "#262a33", "surface-bright": "#353942", "surface-container-highest": "#31353e", "on-tertiary": "#003915", "surface-container-low": "#181c24", "on-secondary": "#1000a9", "primary-fixed": "#6ffbbe", "on-primary-fixed-variant": "#005236", "on-surface-variant": "#bbcabf", "on-secondary-fixed-variant": "#2f2ebe", "surface-dim": "#0f131c", "on-secondary-fixed": "#07006c", "on-error": "#690005", "surface": "#0f131c", "secondary": "#c0c1ff", "inverse-surface": "#dfe2ee", "tertiary": "#4ae176", "secondary-fixed": "#e1e0ff", "inverse-primary": "#006c49", "on-primary": "#003824", "tertiary-container": "#06bb56", "on-secondary-container": "#b0b2ff", "on-tertiary-container": "#00431a", "primary": "#4edea3", "outline-variant": "#3c4a42", "on-primary-container": "#00422b", "on-tertiary-fixed": "#002109", "on-primary-fixed": "#002113", "on-tertiary-fixed-variant": "#005321", "on-surface": "#dfe2ee", "primary-fixed-dim": "#4edea3", "surface-variant": "#31353e", "surface-container-lowest": "#0a0e16", "on-background": "#dfe2ee", "surface-container": "#1c2028", "error-container": "#93000a", "background": "#0f131c", "primary-container": "#10b981", "surface-tint": "#4edea3", "error": "#ffb4ab", "tertiary-fixed": "#6bff8f", "inverse-on-surface": "#2c3039", "on-error-container": "#ffdad6", "secondary-container": "#3131c0", "outline": "#86948a", "secondary-fixed-dim": "#c0c1ff", "tertiary-fixed-dim": "#4ae176" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-2xs": "0.125rem", "space-xl": "2rem", "margin": "1.5rem", "space-lg": "1.5rem", "margin-mobile": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-2xl": "3rem", "space-xs": "0.25rem", "gutter-mobile": "0.75rem", "space-md": "1rem" }, fontFamily: { "label-lg": ["Inter"], "metric-display": ["Lexend"], "label-md": ["Inter"], "headline-lg": ["Lexend"], "headline-sm": ["Lexend"], "display-lg-mobile": ["Lexend"], "headline-xl": ["Lexend"], "display-lg": ["Lexend"], "label-sm": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-md": ["Lexend"] }, fontSize: { "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "metric-display": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-xl": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Fechar resumo" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors active:scale-95" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[20px]">close</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">Resumo Pos Treino</h1></div><div class="flex items-center gap-space-sm"><button aria-label="Compartilhar conquista" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors active:scale-95" type="button"><span class="material-symbols-outlined text-[20px]">share</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full px-margin-mobile pb-space-2xl gap-space-lg">
+<!-- Celebration Top Hero -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container p-space-lg flex flex-col gap-space-md shadow-xl">
+<div class="absolute -top-12 -right-12 w-44 h-44 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-36 h-36 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between z-10">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-primary/15 text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Treino Concluído com Sucesso</span>
+</div>
+<div class="flex items-center gap-space-2xs text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>54 min 12s</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-2xs z-10">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface tracking-tight">Treino B Finalizado!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Dorsal, Trapézio &amp; Bíceps • Smart Fit Consolação</p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs text-on-surface-variant font-body-sm text-body-sm z-10">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span>Hoje, 19:28</span>
+<span>•</span>
+<span class="text-primary font-label-md text-label-md">Consistência 4/4 na semana</span>
+</div>
+</div>
+<!-- Primary Performance Metrics Bento Grid -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Telemetria de Carga &amp; Esforço</span>
+<span class="font-label-md text-label-md text-primary">Diagnóstico de Alta Precisão</span>
+</div>
+<div class="grid grid-cols-2 gap-gutter-mobile">
+<!-- Card 1: Tonelagem Total (Featured Glow) -->
+<div class="col-span-2 relative overflow-hidden rounded-xl bg-surface-container-high p-space-md shadow-lg flex flex-col justify-between">
+<div class="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-primary/15 to-transparent pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Volume de Carga Total</span>
+<div class="flex items-baseline gap-space-xs pt-space-2xs">
+<span class="font-metric-display text-metric-display text-primary tracking-tight">5.240</span>
+<span class="font-headline-sm text-headline-sm text-primary">kg</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary/15 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">+390 kg vs. semana passada</span>
+<span class="px-space-sm py-space-2xs rounded-full bg-primary text-on-primary font-label-sm text-label-sm">
+            Novo Recorde +8%
+          </span>
+</div>
+</div>
+<!-- Card 2: Calorias Queimadas -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Energia</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">local_fire_department</span>
+</div>
+</div>
+<div class="py-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight">418</span>
+<span class="font-label-md text-label-md text-on-surface-variant">kcal</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-space-2xs line-clamp-2">EPOC estimado: +85 kcal em 12h</p>
+</div>
+</div>
+<!-- Card 3: Intensidade Média -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Intensidade</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+</div>
+</div>
+<div class="py-space-xs">
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight">8.4</span>
+<span class="font-label-md text-label-md text-on-surface-variant">RPE</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary pt-space-2xs line-clamp-2">Zona de Hipertrofia Efetiva</p>
+</div>
+</div>
+<!-- Card 4: Frequência Cardíaca -->
+<div class="col-span-2 rounded-xl bg-surface-container p-space-md shadow-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">Ritmo Cardíaco</span>
+<span class="font-headline-md text-headline-md text-on-surface">142 <span class="font-label-md text-label-md text-on-surface-variant">bpm média</span></span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-error block">Pico: 168 bpm</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">28 min em Zona 3/4</span>
+</div>
+</div>
+<!-- Inline Telemetry Track Bar -->
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden flex mt-space-xs">
+<div class="h-full bg-secondary-container" style="width: 25%"></div>
+<div class="h-full bg-tertiary-container" style="width: 50%"></div>
+<div class="h-full bg-primary" style="width: 20%"></div>
+<div class="h-full bg-error" style="width: 5%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- PR Showcase Section -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="text-xl">🏆</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Recordes Pessoais Superados</h3>
+</div>
+<span class="px-space-sm py-space-2xs rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">3 Conquistas</span>
+</div>
+<!-- PR Item 1 -->
+<div class="rounded-xl bg-surface-container-high p-space-md shadow-md flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[24px]">vertical_align_bottom</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Puxada Alta na Polia</span>
+<span class="px-space-xs py-space-2xs rounded bg-primary/20 text-primary font-label-sm text-label-sm shrink-0">NOVO PR</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary pt-space-2xs">70 kg × 8 reps</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+5 kg em relação ao histórico anterior</span>
+</div>
+</div>
+<div class="text-right shrink-0 pl-space-xs">
+<span class="material-symbols-outlined text-primary text-[28px]">trending_up</span>
+</div>
+</div>
+<!-- PR Item 2 -->
+<div class="rounded-xl bg-surface-container-high p-space-md shadow-md flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[24px]">fitness_center</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Remada Curvada com Barra</span>
+<span class="font-headline-sm text-headline-sm text-on-surface pt-space-2xs">75 kg × 10 reps</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Volume histórico recorde nesta ficha</span>
+</div>
+</div>
+<div class="text-right shrink-0 pl-space-xs">
+<span class="material-symbols-outlined text-secondary text-[28px]">verified</span>
+</div>
+</div>
+<!-- PR Item 3 -->
+<div class="rounded-xl bg-surface-container-high p-space-md shadow-md flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[24px]">timer</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Densidade de Treino</span>
+<span class="font-headline-sm text-headline-sm text-on-surface pt-space-2xs">18 séries em 54 min</span>
+<span class="font-body-sm text-body-sm text-tertiary">94% adesão aos tempos de descanso prescritos</span>
+</div>
+</div>
+<div class="text-right shrink-0 pl-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[28px]">bolt</span>
+</div>
+</div>
+</div>
+<!-- Muscle Engagement & Biomechanics Breakdown -->
+<div class="rounded-xl bg-surface-container p-space-lg flex flex-col gap-space-md shadow-lg">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Biometria &amp; Ativação</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Distribuição de Tensão Muscular</h3>
+</div>
+<div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">monitor_heart</span>
+</div>
+</div>
+<!-- Visual Muscle Progress Bars -->
+<div class="flex flex-col gap-space-sm pt-space-2xs">
+<!-- Muscle 1 -->
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface">Grande Dorsal</span>
+<span class="text-primary">8 Séries (100% de ativação ótima)</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Muscle 2 -->
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface">Trapézio &amp; Romboides</span>
+<span class="text-on-surface-variant">5 Séries (Estimulação ideal)</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-primary/75 h-full rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<!-- Muscle 3 -->
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface">Bíceps Braquial &amp; Braquiorradial</span>
+<span class="text-on-surface-variant">5 Séries (Fadiga muscular alvo atingida)</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-primary/60 h-full rounded-full" style="width: 68%"></div>
+</div>
+</div>
+</div>
+<!-- Biomechanical Coach Engine Card -->
+<div class="rounded-lg bg-surface-container-low p-space-md flex gap-space-sm items-start">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-secondary">Motor Biomecânico FitLife AI</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-space-2xs">
+          Estimativa de fadiga do SNC: <span class="text-on-surface font-label-md text-label-md">Moderada</span>. Tempo ideal de recuperação para novo estímulo em Dorsal: <span class="text-primary font-label-md text-label-md">48h (Quinta-feira)</span>.
+        </p>
+</div>
+</div>
+</div>
+<!-- Post-Workout Nutritional Sync (AI Recommender) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container p-space-lg flex flex-col gap-space-md shadow-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">restaurant</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Janela Anabólica Pós-Treino</h3>
+</div>
+<span class="px-space-sm py-space-2xs rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">Próximo Passo</span>
+</div>
+<!-- Macro prescription breakdown -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high">
+<div class="flex-1 flex flex-col items-center justify-center p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Proteína</span>
+<span class="font-headline-md text-headline-md text-primary">35g</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Carbo Rápido</span>
+<span class="font-headline-md text-headline-md text-secondary">60g</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hidratação</span>
+<span class="font-headline-md text-headline-md text-on-surface">650ml</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface">Sugestão Inteligente Recomendada:</span>
+<div class="rounded-lg bg-surface-container-low p-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Opção Rápida (Shake)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Whey Protein Isolado + Banana + Aveia</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<div class="rounded-lg bg-surface-container-low p-space-sm flex items-center justify-between opacity-80">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Opção Sólida (Jantar)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">150g Frango Grelhado + 180g Arroz &amp; Brócolis</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">radio_button_unchecked</span>
+</div>
+</div>
+<button class="w-full py-space-sm px-space-md rounded-lg bg-surface-bright text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs active:scale-[0.98] transition-transform shadow-md" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Registrar Refeição no Plano Diário</span>
+</button>
+</div>
+<!-- Bottom Interactive Action Area (Thumb Zone) -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Primary CTA -->
+<button class="w-full h-14 rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-sm active:scale-[0.98] transition-all shadow-xl shadow-primary/20" id="save-workout-btn" type="button">
+<span class="material-symbols-outlined text-[24px]">cloud_done</span>
+<span>Salvar &amp; Sincronizar Ficha</span>
+</button>
+<!-- Secondary Share CTA -->
+<button class="w-full h-12 rounded-xl bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-sm active:scale-[0.98] transition-all hover:bg-surface-container-high" id="share-summary-btn" type="button">
+<span class="material-symbols-outlined text-primary text-[20px]">ios_share</span>
+<span>Compartilhar Conquista nos Stories</span>
+</button>
+</div>
+</div>
+<script>
+  (function() {
+    const saveBtn = document.getElementById('save-workout-btn');
+    const shareBtn = document.getElementById('share-summary-btn');
+
+    if (saveBtn) {
+      saveBtn.addEventListener('click', function() {
+        this.innerHTML = '<span class="material-symbols-outlined animate-spin text-[22px]">progress_activity</span><span>Sincronizando Dados...</span>';
+        setTimeout(() => {
+          this.className = 'w-full h-14 rounded-xl bg-tertiary-container text-on-tertiary font-headline-sm text-headline-sm flex items-center justify-center gap-space-sm shadow-xl';
+          this.innerHTML = '<span class="material-symbols-outlined text-[24px]">verified</span><span>Treino B Sincronizado!</span>';
+        }, 800);
+      });
+    }
+
+    if (shareBtn) {
+      shareBtn.addEventListener('click', function() {
+        if (navigator.share) {
+          navigator.share({
+            title: 'Treino B Concluído - FitLife AI',
+            text: 'Bati 5.240 kg de volume hoje no treino de Dorsal & Bíceps!',
+            url: window.location.href,
+          }).catch(() => {});
+        } else {
+          this.innerHTML = '<span class="material-symbols-outlined text-primary text-[20px]">check</span><span>Copiado para a área de transferência!</span>';
+          setTimeout(() => {
+            this.innerHTML = '<span class="material-symbols-outlined text-primary text-[20px]">ios_share</span><span>Compartilhar Conquista nos Stories</span>';
+          }, 2000);
+        }
+      });
+    }
+  })();
+</script></main></body></html>
