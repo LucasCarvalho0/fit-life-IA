@@ -83,6 +83,27 @@ export default function LoginPage() {
     }
   };
 
+  // Traduz mensagens de erro do Supabase para português
+  const translateError = (msg: string): string => {
+    if (msg.includes("Invalid login credentials") || msg.includes("invalid_credentials"))
+      return "E-mail ou senha incorretos. Verifique e tente novamente.";
+    if (msg.includes("Email not confirmed"))
+      return "Confirme seu e-mail antes de entrar. Verifique sua caixa de entrada.";
+    if (msg.includes("User already registered") || msg.includes("already been registered"))
+      return "Este e-mail já está cadastrado. Tente fazer login.";
+    if (msg.includes("Password should be at least"))
+      return "A senha deve ter no mínimo 6 caracteres.";
+    if (msg.includes("Unable to validate email address"))
+      return "E-mail inválido. Verifique e tente novamente.";
+    if (msg.includes("signup_disabled"))
+      return "Cadastro temporariamente desativado. Tente mais tarde.";
+    if (msg.includes("URL") || msg.includes("API key") || msg.includes("required"))
+      return "Configuração do servidor incompleta. Entre em contato com o suporte.";
+    if (msg.includes("Failed to fetch") || msg.includes("NetworkError") || msg.includes("network"))
+      return "Sem conexão com o servidor. Verifique sua internet e tente novamente.";
+    return msg;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     resetMessages();
@@ -92,6 +113,7 @@ export default function LoginPage() {
       const supabase = createClient();
 
       if (mode === "register") {
+        if (!firstName.trim()) throw new Error("Digite seu nome.");
         if (password.length < 6) throw new Error("A senha deve ter no mínimo 6 caracteres.");
         if (password !== confirmPassword) throw new Error("As senhas digitadas não coincidem.");
 
@@ -108,12 +130,12 @@ export default function LoginPage() {
           },
         });
 
-        if (error) throw error;
+        if (error) throw new Error(translateError(error.message));
 
         localStorage.setItem("fitlife_saved_email", email);
 
         if (data?.user && !data.session) {
-          setSuccessMessage("Conta criada! Verifique seu e-mail para confirmar o cadastro.");
+          setSuccessMessage("✅ Conta criada! Verifique seu e-mail para confirmar o cadastro e depois faça login.");
           setLoading(false);
           return;
         }
@@ -122,7 +144,7 @@ export default function LoginPage() {
         setTimeout(() => router.push("/onboarding"), 900);
       } else {
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
+        if (error) throw new Error(translateError(error.message));
 
         localStorage.setItem("fitlife_saved_email", email);
         setSuccessMessage("Login realizado! Entrando...");
@@ -133,7 +155,8 @@ export default function LoginPage() {
         }, 700);
       }
     } catch (err: unknown) {
-      setErrorMessage(err instanceof Error ? err.message : "Falha na autenticação.");
+      const msg = err instanceof Error ? err.message : "Falha na autenticação.";
+      setErrorMessage(translateError(msg));
       setLoading(false);
     }
   };
