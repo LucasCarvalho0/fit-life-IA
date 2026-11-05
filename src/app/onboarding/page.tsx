@@ -66,7 +66,7 @@ export default function OnboardingPage() {
         if (data?.user) {
           const meta = data.user.user_metadata || {};
           if (meta.first_name) setFirstName(meta.first_name);
-          else if (data.user.email) setFirstName(data.user.email.split("@")[0]);
+          else if (data.user.email) setFirstName(data.user.email.split("@")[0] ?? "");
         }
       } catch {
         // fallback
