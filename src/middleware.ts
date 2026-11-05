@@ -13,7 +13,8 @@ export function middleware(request: NextRequest) {
     pathname === "/" ||
     pathname === "/login" ||
     pathname === "/signup" ||
-    pathname.startsWith("/auth");
+    pathname.startsWith("/auth") ||
+    pathname.startsWith("/recuperar-senha");
 
   // Detecta sessão Supabase pelo cookie (padrão sb-*-auth-token)
   const hasSession = request.cookies

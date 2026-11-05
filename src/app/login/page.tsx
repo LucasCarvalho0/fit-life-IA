@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
@@ -285,13 +286,12 @@ export default function LoginPage() {
               <div className="flex items-center justify-between">
                 <label className="text-xs font-semibold text-on-surface" htmlFor="password">Senha</label>
                 {mode === "login" && (
-                  <button
-                    type="button"
-                    onClick={() => alert("Instruções de recuperação enviadas para o seu e-mail cadastrado.")}
+                  <Link
+                    href="/recuperar-senha"
                     className="text-[11px] text-primary font-bold hover:underline"
                   >
                     Esqueceu a senha?
-                  </button>
+                  </Link>
                 )}
               </div>
               <div className="relative flex items-center">
