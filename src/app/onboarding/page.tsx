@@ -6,7 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 
 // ─── Tipos do Onboarding ──────────────────────────────────────────────────────
 type Gender = "male" | "female";
-type Goal = "hypertrophy" | "cutting" | "recomp" | "conditioning";
+type Goal = "cutting" | "hypertrophy" | "recomp" | "weight_gain" | "maintenance" | "conditioning";
 type Experience = "beginner" | "intermediate" | "advanced";
 type WorkWindow = "commercial" | "night" | "flexible";
 type WorkoutTime = "morning" | "lunch" | "afternoon" | "night";
@@ -21,6 +21,10 @@ interface CalculatedPlan {
   fat: number;
   waterMl: number;
   creatineGrams: number;
+  bmi: number;
+  bmiCategory: string;
+  weightDifference: number;
+  workoutSplit: string;
 }
 
 export default function OnboardingPage() {
@@ -33,16 +37,22 @@ export default function OnboardingPage() {
   // Etapa 1: Boas-vindas
   const [firstName, setFirstName] = useState("");
 
-  // Etapa 2: Biometria & Metabolismo (Image 7)
+  // Etapa 2: Biometria & Metabolismo
   const [gender, setGender] = useState<Gender>("male");
   const [age, setAge] = useState(28);
   const [height, setHeight] = useState(178);
   const [weight, setWeight] = useState(76.4);
   const [experience, setExperience] = useState<Experience>("intermediate");
 
-  // Etapa 3: Objetivos & Metas Físicas (Image 9)
+  // Inputs temporários para digitação direta
+  const [ageInput, setAgeInput] = useState("28");
+  const [heightInput, setHeightInput] = useState("178");
+  const [weightInput, setWeightInput] = useState("76.4");
+
+  // Etapa 3: Objetivos & Metas Físicas
   const [goal, setGoal] = useState<Goal>("recomp");
   const [targetWeight, setTargetWeight] = useState(73.0);
+  const [targetWeightInput, setTargetWeightInput] = useState("73.0");
   const [evolutionRate, setEvolutionRate] = useState<"conservative" | "moderate" | "accelerated">("moderate");
   const [frequencyDays, setFrequencyDays] = useState(5);
 
@@ -83,6 +93,74 @@ export default function OnboardingPage() {
 
   const liveBMR = calculateLiveBMR();
 
+  // Cálculo do IMC em tempo real com categorização da OMS
+  const heightInMeters = height / 100;
+  const bmi = heightInMeters > 0 ? Math.round((weight / (heightInMeters * heightInMeters)) * 10) / 10 : 0;
+
+  const getBmiCategory = (val: number) => {
+    if (val < 18.5) return { label: "Abaixo do peso ideal", color: "text-amber-400", tag: "Baixo IMC" };
+    if (val < 25.0) return { label: "Faixa de Eutrofia (Peso Saudável)", color: "text-primary", tag: "Normal" };
+    if (val < 30.0) return { label: "Sobrepeso (Alerta de Triagem)", color: "text-amber-300", tag: "Sobrepeso" };
+    if (val < 35.0) return { label: "Obesidade Grau I", color: "text-rose-400", tag: "Grau I" };
+    if (val < 40.0) return { label: "Obesidade Grau II (Severa)", color: "text-rose-500", tag: "Grau II" };
+    return { label: "Obesidade Grau III (Mórbida)", color: "text-rose-600", tag: "Grau III" };
+  };
+
+  const bmiInfo = getBmiCategory(bmi);
+  const weightDiff = Math.round((targetWeight - weight) * 10) / 10;
+
+  // Divisão biomecânica de treino recomendada pelo motor
+  const getSuggestedWorkoutSplit = (days: number) => {
+    if (days <= 2) return "Full Body (Corpo Inteiro 2x/sem)";
+    if (days === 3) return "Full Body Adaptado (Alternância A/B 3x/sem)";
+    if (days === 4) return "Upper / Lower (Superiores & Inferiores 4x/sem)";
+    if (days === 5) return "Upper / Lower Híbrido + PPL (5x/sem)";
+    if (days === 6) return "Push / Pull / Legs Duplo (Alta Frequência 6x/sem)";
+    return "PPL 6x + 1 Dia Recuperação Ativa";
+  };
+
+  const workoutSplit = getSuggestedWorkoutSplit(frequencyDays);
+
+  // Manipuladores de inputs com sincronização numérica e validação
+  const handleAgeChange = (valStr: string) => {
+    setAgeInput(valStr);
+    const parsed = parseInt(valStr.replace(/\D/g, ""), 10);
+    if (!isNaN(parsed) && parsed >= 12 && parsed <= 110) {
+      setAge(parsed);
+    }
+  };
+
+  const handleHeightChange = (valStr: string) => {
+    setHeightInput(valStr);
+    // Trata se o usuário digitar ex "1.78" ou "178"
+    let clean = valStr.replace(",", ".");
+    let parsed = parseFloat(clean);
+    if (!isNaN(parsed)) {
+      if (parsed > 0 && parsed < 3) parsed = Math.round(parsed * 100);
+      if (parsed >= 90 && parsed <= 250) {
+        setHeight(parsed);
+      }
+    }
+  };
+
+  const handleWeightChange = (valStr: string) => {
+    setWeightInput(valStr);
+    const clean = valStr.replace(",", ".");
+    const parsed = parseFloat(clean);
+    if (!isNaN(parsed) && parsed >= 25 && parsed <= 300) {
+      setWeight(Math.round(parsed * 10) / 10);
+    }
+  };
+
+  const handleTargetWeightChange = (valStr: string) => {
+    setTargetWeightInput(valStr);
+    const clean = valStr.replace(",", ".");
+    const parsed = parseFloat(clean);
+    if (!isNaN(parsed) && parsed >= 25 && parsed <= 300) {
+      setTargetWeight(Math.round(parsed * 10) / 10);
+    }
+  };
+
   // Função para salvar e concluir onboarding
   const handleFinishOnboarding = async () => {
     setGenerating(true);
@@ -94,9 +172,12 @@ export default function OnboardingPage() {
     const tdee = Math.round(bmr * mult);
 
     let targetCalories = tdee;
-    if (goal === "hypertrophy") targetCalories = tdee + 400;
-    else if (goal === "cutting") targetCalories = tdee - 450;
+    if (goal === "cutting") targetCalories = tdee - 450;
+    else if (goal === "hypertrophy") targetCalories = tdee + 350;
     else if (goal === "recomp") targetCalories = tdee - 150;
+    else if (goal === "weight_gain") targetCalories = tdee + 500;
+    else if (goal === "maintenance") targetCalories = tdee;
+    else if (goal === "conditioning") targetCalories = tdee - 100;
 
     const protein = Math.round(weight * 2.1);
     const fat = Math.round((targetCalories * 0.25) / 9);
@@ -113,6 +194,10 @@ export default function OnboardingPage() {
       fat,
       waterMl,
       creatineGrams,
+      bmi,
+      bmiCategory: bmiInfo.label,
+      weightDifference: weightDiff,
+      workoutSplit,
     };
 
     const profileData = {
@@ -319,7 +404,7 @@ export default function OnboardingPage() {
               </p>
             </section>
 
-            {/* Biometrics Grid: Idade e Altura */}
+            {/* Biometrics Grid: Idade e Altura com Digitação Manual & Botões +/- */}
             <div className="grid grid-cols-2 gap-3">
               {/* Idade */}
               <div className="flex flex-col justify-between p-3.5 rounded-2xl bg-surface-container border border-white/5 shadow-sm">
@@ -327,22 +412,38 @@ export default function OnboardingPage() {
                   <span className="text-xs text-on-surface-variant font-medium">Idade</span>
                   <span className="material-symbols-outlined text-[18px] text-primary">cake</span>
                 </div>
-                <div className="my-2 flex items-baseline justify-center gap-1">
-                  <span className="font-display text-2xl font-black text-on-surface">{age}</span>
-                  <span className="text-xs text-on-surface-variant">anos</span>
+                <div className="my-1.5 flex items-baseline justify-center gap-1">
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    value={ageInput}
+                    onChange={(e) => handleAgeChange(e.target.value)}
+                    onBlur={() => setAgeInput(String(age))}
+                    className="w-16 font-display text-2xl font-black text-on-surface bg-transparent text-center focus:outline-none focus:border-b-2 focus:border-primary"
+                    placeholder="28"
+                  />
+                  <span className="text-xs text-on-surface-variant font-semibold">anos</span>
                 </div>
                 <div className="flex items-center justify-between gap-1.5">
                   <button
                     type="button"
-                    onClick={() => setAge((prev) => Math.max(14, prev - 1))}
-                    className="flex-1 h-8 rounded-lg bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-base border border-white/5"
+                    onClick={() => {
+                      const next = Math.max(14, age - 1);
+                      setAge(next);
+                      setAgeInput(String(next));
+                    }}
+                    className="flex-1 h-8 rounded-lg bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-base border border-white/5 hover:bg-surface-container-highest"
                   >
                     -
                   </button>
                   <button
                     type="button"
-                    onClick={() => setAge((prev) => Math.min(80, prev + 1))}
-                    className="flex-1 h-8 rounded-lg bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-base border border-white/5"
+                    onClick={() => {
+                      const next = Math.min(100, age + 1);
+                      setAge(next);
+                      setAgeInput(String(next));
+                    }}
+                    className="flex-1 h-8 rounded-lg bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-base border border-white/5 hover:bg-surface-container-highest"
                   >
                     +
                   </button>
@@ -355,22 +456,38 @@ export default function OnboardingPage() {
                   <span className="text-xs text-on-surface-variant font-medium">Altura</span>
                   <span className="material-symbols-outlined text-[18px] text-primary">straighten</span>
                 </div>
-                <div className="my-2 flex items-baseline justify-center gap-1">
-                  <span className="font-display text-2xl font-black text-on-surface">{height}</span>
-                  <span className="text-xs text-on-surface-variant">cm</span>
+                <div className="my-1.5 flex items-baseline justify-center gap-1">
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    value={heightInput}
+                    onChange={(e) => handleHeightChange(e.target.value)}
+                    onBlur={() => setHeightInput(String(height))}
+                    className="w-16 font-display text-2xl font-black text-on-surface bg-transparent text-center focus:outline-none focus:border-b-2 focus:border-primary"
+                    placeholder="178"
+                  />
+                  <span className="text-xs text-on-surface-variant font-semibold">cm</span>
                 </div>
                 <div className="flex items-center justify-between gap-1.5">
                   <button
                     type="button"
-                    onClick={() => setHeight((prev) => Math.max(120, prev - 1))}
-                    className="flex-1 h-8 rounded-lg bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-base border border-white/5"
+                    onClick={() => {
+                      const next = Math.max(100, height - 1);
+                      setHeight(next);
+                      setHeightInput(String(next));
+                    }}
+                    className="flex-1 h-8 rounded-lg bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-base border border-white/5 hover:bg-surface-container-highest"
                   >
                     -
                   </button>
                   <button
                     type="button"
-                    onClick={() => setHeight((prev) => Math.min(220, prev + 1))}
-                    className="flex-1 h-8 rounded-lg bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-base border border-white/5"
+                    onClick={() => {
+                      const next = Math.min(240, height + 1);
+                      setHeight(next);
+                      setHeightInput(String(next));
+                    }}
+                    className="flex-1 h-8 rounded-lg bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-base border border-white/5 hover:bg-surface-container-highest"
                   >
                     +
                   </button>
@@ -378,7 +495,7 @@ export default function OnboardingPage() {
               </div>
             </div>
 
-            {/* Peso Corporal Atual com TMB Preliminar */}
+            {/* Peso Corporal Atual com Digitação Manual & Botões +/- */}
             <div className="p-4 rounded-2xl bg-surface-container border border-white/5 shadow-sm flex flex-col gap-2.5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-on-surface">
@@ -386,37 +503,73 @@ export default function OnboardingPage() {
                   <span>Peso Corporal Atual</span>
                 </div>
                 <span className="text-[10px] text-primary font-bold bg-primary/10 px-2 py-0.5 rounded-full uppercase">
-                  Decimais
+                  Digitação Livre ou +/-
                 </span>
               </div>
 
               <div className="flex items-center justify-between px-2 py-1">
                 <button
                   type="button"
-                  onClick={() => setWeight((prev) => Math.max(35, Math.round((prev - 0.2) * 10) / 10))}
-                  className="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-xl border border-white/5"
+                  onClick={() => {
+                    const next = Math.max(30, Math.round((weight - 0.5) * 10) / 10);
+                    setWeight(next);
+                    setWeightInput(next.toFixed(1));
+                  }}
+                  className="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-xl border border-white/5 hover:bg-surface-container-highest"
                 >
                   -
                 </button>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-display text-3xl font-black text-primary font-mono">{weight.toFixed(1)}</span>
+                <div className="flex items-baseline justify-center gap-1">
+                  <input
+                    type="text"
+                    inputMode="decimal"
+                    value={weightInput}
+                    onChange={(e) => handleWeightChange(e.target.value)}
+                    onBlur={() => setWeightInput(weight.toFixed(1))}
+                    className="w-24 font-display text-3xl font-black text-primary font-mono bg-transparent text-center focus:outline-none focus:border-b-2 focus:border-primary"
+                    placeholder="76.4"
+                  />
                   <span className="text-sm font-semibold text-on-surface-variant">kg</span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => setWeight((prev) => Math.min(200, Math.round((prev + 0.2) * 10) / 10))}
-                  className="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-xl border border-white/5"
+                  onClick={() => {
+                    const next = Math.min(250, Math.round((weight + 0.5) * 10) / 10);
+                    setWeight(next);
+                    setWeightInput(next.toFixed(1));
+                  }}
+                  className="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-xl border border-white/5 hover:bg-surface-container-highest"
                 >
                   +
                 </button>
               </div>
 
-              <div className="flex items-center justify-between pt-2 border-t border-white/5 text-[11px]">
-                <span className="text-on-surface-variant flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[14px] text-primary">bolt</span>
-                  TMB Estimada Preliminar
-                </span>
-                <span className="font-mono font-bold text-on-surface">~{liveBMR.toLocaleString("pt-BR")} kcal/dia</span>
+              {/* Avaliação Corporal Inteligente: IMC & Triagem Clínica */}
+              <div className="mt-1 p-3 rounded-xl bg-surface-container-low border border-white/5 flex flex-col gap-2">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-on-surface-variant font-medium flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[15px] text-primary">insights</span>
+                    Índice de Triagem (IMC)
+                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-mono font-bold text-on-surface text-sm">{bmi} kg/m²</span>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-surface-container-high ${bmiInfo.color}`}>
+                      {bmiInfo.tag}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-[11px] pt-1.5 border-t border-white/5">
+                  <span className="text-on-surface-variant flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[14px] text-primary">bolt</span>
+                    TMB Estimada (Mifflin-St Jeor)
+                  </span>
+                  <span className="font-mono font-bold text-primary">~{liveBMR.toLocaleString("pt-BR")} kcal/dia</span>
+                </div>
+
+                <p className="text-[9.5px] text-on-surface-variant/80 leading-tight pt-1">
+                  ℹ️ <strong className="text-on-surface">Aviso de triagem:</strong> O IMC é um indicador populacional e não diferencia massa muscular de gordura em praticantes de musculação.
+                </p>
               </div>
             </div>
 
@@ -565,36 +718,55 @@ export default function OnboardingPage() {
               </p>
             </section>
 
-            {/* Cards de Objetivos */}
+            {/* Cards de Objetivos (6 Objetivos Oficiais) */}
             <section className="flex flex-col gap-2.5">
               {[
                 {
-                  id: "hypertrophy",
-                  title: "Hipertrofia & Massa Muscular",
-                  tag: "Superávit ~300-500 kcal",
-                  desc: "Bulking limpo com ênfase em sobrecarga progressiva, balanço nitrogenado positivo e estímulo máximo de tensão mecânica miofibrilar.",
-                  icon: "fitness_center",
+                  id: "cutting",
+                  title: "Emagrecimento & Definição",
+                  badge: "Déficit Calórico",
+                  tag: "Queima Lipídica Otimizada",
+                  desc: "Redução do percentual de gordura corporal preservando ao máximo a massa magra já conquistada.",
+                  icon: "local_fire_department",
                 },
                 {
-                  id: "cutting",
-                  title: "Definição & Emagrecimento",
-                  tag: "Déficit calculado sem catabolismo",
-                  desc: "Cutting sustentável com preservação rigorosa de massa magra, modulação hormonal protetora e densidade nutricional balanceada.",
-                  icon: "local_fire_department",
+                  id: "hypertrophy",
+                  title: "Hipertrofia Muscular",
+                  badge: "Superávit Limpo",
+                  tag: "Construção de Massa",
+                  desc: "Ganho sólido de massa muscular com foco em sobrecarga progressiva e tensão mecânica miofibrilar.",
+                  icon: "fitness_center",
                 },
                 {
                   id: "recomp",
                   title: "Recomposição Corporal",
                   badge: "Estratégia Ouro",
-                  tag: "Normocalórica ciclizada",
-                  desc: "Oxidação lipídica e síntese proteica simultâneas. Ideal para otimizar composição com estabilidade energética metabólica.",
+                  tag: "Simultâneo: Perder Gordura & Ganhar Músculo",
+                  desc: "Oxidação lipídica e síntese proteica sincronizadas. Ideal para iniciantes ou retorno aos treinos.",
                   icon: "sync_alt",
                 },
                 {
+                  id: "weight_gain",
+                  title: "Ganho de Peso Ponderal",
+                  badge: "Aporte Calórico",
+                  tag: "Densidade Energética",
+                  desc: "Aumento de peso estruturado com superávit planejado para indivíduos com biotipo acelerado.",
+                  icon: "trending_up",
+                },
+                {
+                  id: "maintenance",
+                  title: "Manutenção de Peso & Rendimento",
+                  badge: "Normocalórica",
+                  tag: "Estabilidade Metabólica",
+                  desc: "Manter o peso corporal fixo enquanto lapida a qualidade postural, força muscular e saúde global.",
+                  icon: "balance",
+                },
+                {
                   id: "conditioning",
-                  title: "Condicionamento & Saúde Geral",
-                  tag: "Homeostase & Resistência",
-                  desc: "Manutenção de peso ponderal, incremento de densidade mitocondrial e modulação de marcadores cardiovasculares e longevidade.",
+                  title: "Condicionamento Físico & Mobilidade",
+                  badge: "Saúde & Longevidade",
+                  tag: "Capacidade Cardiorrespiratória",
+                  desc: "Melhora de resistência física, condicionamento aeróbico, fôlego e mobilidade articular para o dia a dia.",
                   icon: "monitor_heart",
                 },
               ].map((g) => (
@@ -644,12 +816,12 @@ export default function OnboardingPage() {
               ))}
             </section>
 
-            {/* Meta de Peso Corporal Stepper */}
+            {/* Meta de Peso Corporal com Digitação Manual & Botões +/- */}
             <div className="p-4 rounded-2xl bg-surface-container border border-white/5 shadow-sm flex flex-col gap-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-on-surface flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[16px] text-primary">flag</span>
-                  Meta de Peso Corporal
+                  Meta de Peso Desejado
                 </span>
                 <span className="text-[10px] text-on-surface-variant font-mono">Atual: {weight.toFixed(1)} kg</span>
               </div>
@@ -657,28 +829,44 @@ export default function OnboardingPage() {
               <div className="flex items-center justify-between px-2">
                 <button
                   type="button"
-                  onClick={() => setTargetWeight((prev) => Math.max(35, Math.round((prev - 0.5) * 10) / 10))}
-                  className="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-xl border border-white/5"
+                  onClick={() => {
+                    const next = Math.max(30, Math.round((targetWeight - 0.5) * 10) / 10);
+                    setTargetWeight(next);
+                    setTargetWeightInput(next.toFixed(1));
+                  }}
+                  className="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-xl border border-white/5 hover:bg-surface-container-highest"
                 >
                   -
                 </button>
                 <div className="flex flex-col items-center">
                   <div className="flex items-baseline gap-1">
-                    <span className="font-display text-3xl font-black text-on-surface font-mono">
-                      {targetWeight.toFixed(1)}
-                    </span>
+                    <input
+                      type="text"
+                      inputMode="decimal"
+                      value={targetWeightInput}
+                      onChange={(e) => handleTargetWeightChange(e.target.value)}
+                      onBlur={() => setTargetWeightInput(targetWeight.toFixed(1))}
+                      className="w-24 font-display text-3xl font-black text-on-surface font-mono bg-transparent text-center focus:outline-none focus:border-b-2 focus:border-primary"
+                      placeholder="73.0"
+                    />
                     <span className="text-sm font-semibold text-on-surface-variant">kg</span>
                   </div>
-                  <span className="text-[10px] text-primary font-medium">
-                    {targetWeight < weight
-                      ? `-${(weight - targetWeight).toFixed(1)} kg de emagrecimento/recomposição`
-                      : `+${(targetWeight - weight).toFixed(1)} kg de ganho muscular`}
+                  <span className="text-[10px] text-primary font-medium mt-0.5">
+                    {weightDiff < 0
+                      ? `${weightDiff.toFixed(1)} kg de redução ponderal estimada`
+                      : weightDiff > 0
+                      ? `+${weightDiff.toFixed(1)} kg de ganho de massa/peso`
+                      : "0.0 kg — Manutenção e refinamento muscular"}
                   </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => setTargetWeight((prev) => Math.min(200, Math.round((prev + 0.5) * 10) / 10))}
-                  className="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-xl border border-white/5"
+                  onClick={() => {
+                    const next = Math.min(250, Math.round((targetWeight + 0.5) * 10) / 10);
+                    setTargetWeight(next);
+                    setTargetWeightInput(next.toFixed(1));
+                  }}
+                  className="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface active:scale-95 flex items-center justify-center font-bold text-xl border border-white/5 hover:bg-surface-container-highest"
                 >
                   +
                 </button>
@@ -687,7 +875,7 @@ export default function OnboardingPage() {
               {/* Ritmo de Evolução Seguro (Protocolo ISSN) */}
               <div className="flex flex-col gap-1.5 pt-1">
                 <div className="flex items-center justify-between text-[10px] text-on-surface-variant">
-                  <span>Ritmo de Evolução Seguro</span>
+                  <span>Ritmo de Evolução Recomendado</span>
                   <span className="text-primary font-bold">Protocolo ISSN</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
@@ -710,6 +898,34 @@ export default function OnboardingPage() {
                       <span className="text-[9px] opacity-80 font-mono">{r.rate}</span>
                     </button>
                   ))}
+                </div>
+              </div>
+
+              {/* Resumo da Avaliação Corporal Inteligente */}
+              <div className="p-3 rounded-xl bg-surface-container-low border border-white/5 flex flex-col gap-2 mt-1">
+                <div className="flex items-center justify-between text-xs font-bold text-on-surface">
+                  <span className="flex items-center gap-1 text-primary">
+                    <span className="material-symbols-outlined text-[16px]">calculate</span>
+                    Estimativas Fisiológicas
+                  </span>
+                  <span className="text-[10px] text-on-surface-variant font-mono">
+                    Meta: {weightDiff > 0 ? `+${weightDiff}` : weightDiff} kg
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-[11px] pt-1 border-t border-white/5">
+                  <div className="flex flex-col">
+                    <span className="text-on-surface-variant text-[10px]">Hidratação Sugerida:</span>
+                    <span className="font-mono font-bold text-primary">
+                      {((weight * 40) / 1000).toFixed(1)} L/dia (40ml/kg)
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-on-surface-variant text-[10px]">Creatina Recomendada:</span>
+                    <span className="font-mono font-bold text-tertiary">
+                      {Math.max(3, Math.round(weight * 0.07 * 10) / 10)} g/dia (0.07g/kg)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -743,18 +959,18 @@ export default function OnboardingPage() {
                 ))}
               </div>
 
-              <div className="flex items-center gap-2 pt-1 text-[10px] text-on-surface-variant">
-                <span className="material-symbols-outlined text-[14px] text-primary">splitscreen</span>
-                <span>
-                  Divisão programada:{" "}
-                  {frequencyDays <= 3
-                    ? "Full Body (3x/sem)"
-                    : frequencyDays === 4
-                    ? "Upper / Lower (4x/sem)"
-                    : frequencyDays === 5
-                    ? "Upper / Lower / Push / Pull / Legs (5x/sem)"
-                    : "Push / Pull / Legs Duplo (6x/sem)"}
-                </span>
+              <div className="flex flex-col gap-1 pt-1 text-[11px] text-on-surface-variant">
+                <div className="flex items-center gap-1.5 font-semibold text-on-surface">
+                  <span className="material-symbols-outlined text-[15px] text-primary">splitscreen</span>
+                  <span>Divisão Selecionada pelo Motor: <strong className="text-primary">{workoutSplit}</strong></span>
+                </div>
+                <p className="text-[10px] text-on-surface-variant leading-tight">
+                  {frequencyDays <= 2 && "Estímulo global do corpo com 48-72h de intervalo ótimo para recuperação total."}
+                  {frequencyDays === 3 && "Alternância eficiente entre cadeias musculares com excelente descanso inter-sessões."}
+                  {frequencyDays === 4 && "Balanço fisiológico ideal: membros superiores e inferiores separados com alta intensidade."}
+                  {frequencyDays === 5 && "Distribuição de volume refinado, permitindo foco isolado e recuperação fracionada."}
+                  {frequencyDays >= 6 && "Divisão atlética de alta frequência com rotação Push (Empurrar), Pull (Puxar) e Legs (Pernas)."}
+                </p>
               </div>
             </div>
 
