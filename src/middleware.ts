@@ -8,14 +8,6 @@ import { NextResponse, type NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Rotas públicas (não precisam de login)
-  const isPublicRoute =
-    pathname === "/" ||
-    pathname === "/login" ||
-    pathname === "/signup" ||
-    pathname.startsWith("/auth") ||
-    pathname.startsWith("/recuperar-senha");
-
   // Detecta sessão Supabase pelo cookie (padrão sb-*-auth-token)
   const hasSession = request.cookies
     .getAll()
@@ -25,6 +17,20 @@ export function middleware(request: NextRequest) {
         (c.name.endsWith("-auth-token") || c.name.endsWith("-auth-token.0"))
     );
 
+  // Se for a rota raiz "/", redireciona imediatamente sem passar por página intermediária
+  if (pathname === "/") {
+    const targetUrl = request.nextUrl.clone();
+    targetUrl.pathname = hasSession ? "/dashboard" : "/login";
+    return NextResponse.redirect(targetUrl);
+  }
+
+  // Rotas públicas (não precisam de login)
+  const isPublicRoute =
+    pathname === "/login" ||
+    pathname === "/signup" ||
+    pathname.startsWith("/auth") ||
+    pathname.startsWith("/recuperar-senha");
+
   // Usuário SEM sessão tentando acessar rota protegida → login
   if (!hasSession && !isPublicRoute) {
     const loginUrl = request.nextUrl.clone();
@@ -32,8 +38,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
-  // Usuário COM sessão tentando acessar login/raiz → dashboard
-  if (hasSession && (pathname === "/" || pathname === "/login")) {
+  // Usuário COM sessão tentando acessar login → dashboard
+  if (hasSession && pathname === "/login") {
     const dashboardUrl = request.nextUrl.clone();
     dashboardUrl.pathname = "/dashboard";
     return NextResponse.redirect(dashboardUrl);
