@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Fit Life IA - Treino & Nutrição",
     short_name: "Fit Life IA",
     description: "Treino, nutrição e recomposição corporal com inteligência artificial.",
-    start_url: "/dashboard",
+    start_url: "/",
     scope: "/",
     display: "standalone",
     orientation: "portrait",

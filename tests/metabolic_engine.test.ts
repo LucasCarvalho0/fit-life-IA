@@ -55,3 +55,4 @@ describe("Motor Fisiológico FitLife AI (Mifflin-St Jeor & Diretrizes)", () => {
     expect(getWorkoutSplit(6)).toContain("Push / Pull / Legs");
   });
 });
+
